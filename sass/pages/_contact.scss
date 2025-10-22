@@ -1,0 +1,44 @@
+@use "../abstracts";
+
+#contact-form input,
+#contact-form textarea {
+  display: block;
+  border: solid 1px #d5d5d5;
+  padding: 20px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+#contact-form textarea {
+  height: 200px;
+}
+
+#contact-form #submit {
+  background-color: abstracts.$nav-bg-color;
+  color: #fff;
+  @include abstracts.transition;
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 14px 22px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(115%);
+    transform: translateY(-2px);
+  }
+}
+
+#contact-form p {
+  margin-bottom: 20px;
+  color: abstracts.$body-text-color;
+  line-height: 1.4;
+}
+
+@media screen and (min-width: 768px) {
+  #contact-form #submit {
+    max-width: 200px;
+  }
+}

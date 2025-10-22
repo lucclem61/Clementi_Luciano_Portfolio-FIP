@@ -1,0 +1,18 @@
+.card {
+    padding: 40px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    transition: all .5s ease-in-out;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .card {
+        margin: 0;
+        padding: 20px;
+    }
+}

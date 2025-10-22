@@ -1,0 +1,22 @@
+@use '../abstracts';
+
+body {
+  font-family: abstracts.$body-font-family;
+}
+
+h1, h2, h3 {
+  font-family: abstracts.$heading-font-family;
+}
+
+h2 {
+    font-size: 36px;
+    color: abstracts.$accent-color;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+p {
+    line-height: 24px;
+    margin-bottom: 20px;
+}

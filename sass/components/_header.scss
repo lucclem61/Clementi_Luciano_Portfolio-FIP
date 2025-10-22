@@ -1,0 +1,113 @@
+@use "../abstracts";
+
+#main-header {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-column-gap: 30px;
+
+  background-color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  #logo-con {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    background: linear-gradient(
+      145deg,
+      abstracts.$space-blue-1,
+      abstracts.$space-blue-2
+    );
+    color: #fff;
+    border-radius: 16px;
+    margin: 0 0 6px 0;
+  }
+
+  #site-title {
+    font-family: abstracts.$heading-font-family;
+    font-size: clamp(26px, 4.5vw, 40px);
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  #main-nav {
+    grid-column: 1 / -1;
+    background-color: abstracts.$nav-bg-color;
+    border-radius: 16px;
+    margin: 0 0 6px 0;
+  }
+
+  #main-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 8px 12px;
+    margin: 0;
+  }
+
+  #main-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    &.active {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #main-header {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-column-gap: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    #main-nav ul {
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #main-header {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-column-gap: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    #main-nav ul {
+      justify-content: center;
+      gap: 22px;
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  #main-header {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-column-gap: 34px;
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+}

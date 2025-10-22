@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>Contact — Your Name</title>
+    <link href="css/grid.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <p class="hidden">Contact — Your Name</p>
+
+    <header id="main-header" class="grid-con">
+      <div class="col-span-full" id="logo-con">
+        <h1 id="site-title">Contact Me</h1>
+      </div>
+      <nav class="col-span-full" id="main-nav">
+        <ul>
+          <li><a href="index.html" data-nav="home">Home</a></li>
+          <li><a href="index.html#projects" data-nav="work">Work</a></li>
+          <li>
+            <a href="index.html#testimonials" data-nav="testimonials"
+              >Testimonials</a
+            >
+          </li>
+          <li>
+            <a href="contact.html" data-nav="contact" class="active">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="grid-con" id="contact-us">
+        <form id="contact-form" class="col-span-full m-col-span-8" novalidate>
+          <p>Enter your info, and I’ll get back to you as soon as possible.</p>
+
+          <label for="fname">*First Name</label>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            autocomplete="given-name"
+          />
+
+          <label for="lname">*Last Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            autocomplete="family-name"
+          />
+
+          <label for="email">*Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" />
+
+          <label for="city">*City</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            autocomplete="address-level2"
+          />
+
+          <label for="comments">*Comments</label>
+          <textarea id="comments" name="comments"></textarea>
+
+          <input id="submit" type="submit" value="Contact Me" />
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer grid-con">
+      <div class="footer-surface col-span-full">
+        <div class="footer-top">
+          <div class="footer-left">
+            <a class="footer-email" href="mailto:luciano.s.clementi@gmail.com"
+              >luciano.s.clementi@gmail.com</a
+            >
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer">
+            <ul>
+              <li><a href="index.html" data-nav="home">Home</a></li>
+              <li><a href="index.html#projects" data-nav="work">Work</a></li>
+              <li>
+                <a href="index.html#testimonials" data-nav="testimonials"
+                  >Testimonials</a
+                >
+              </li>
+              <li><a href="contact.html" data-nav="contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-badges"></div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <p>&copy; <span id="year"></span> — Your Name</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

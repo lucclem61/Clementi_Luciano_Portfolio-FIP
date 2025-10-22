@@ -1,0 +1,21 @@
+{
+  // Output CSS next to each .scss, but replace "/sass" with "/css" in the path.
+  // This mirrors your folder structure safely, no matter where the project lives.
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": null,
+      "savePathReplacementPairs": {
+        "/sass": "/css",
+        "\\sass": "\\css"
+      }
+    }
+  ],
+
+  // (Optional) keep source maps
+  "liveSassCompile.settings.generateMap": true,
+
+  // Your existing Live Server setting is fine
+  "liveServer.settings.port": 5501
+}

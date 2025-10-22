@@ -1,0 +1,139 @@
+@use "../abstracts";
+
+footer.site-footer {
+  background: linear-gradient(
+    145deg,
+    abstracts.$space-blue-1,
+    abstracts.$space-blue-2
+  );
+  color: #fff;
+  border-radius: 16px 16px 0 0;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 24px 18px;
+
+  .footer-surface {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a.footer-email {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: abstracts.$secondary-color;
+      }
+    }
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 0;
+      margin: 0;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 10px;
+        transition: all 0.25s ease-in-out;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.15);
+        }
+        &.active {
+          background-color: rgba(255, 255, 255, 0.25);
+        }
+      }
+    }
+  }
+
+  .footer-right {
+    min-height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    .badge-placeholder,
+    .icon-placeholder {
+      display: inline-block;
+      min-width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.14);
+    }
+  }
+
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    margin: 16px 0 8px 0;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  footer.site-footer {
+    padding: 28px 24px;
+
+    .footer-top {
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    .footer-left {
+      justify-content: flex-start;
+    }
+    .footer-right {
+      justify-content: flex-end;
+    }
+
+    .footer-nav ul {
+      gap: 22px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  footer.site-footer {
+    padding: 32px 28px;
+
+    .footer-nav ul a {
+      padding: 8px 12px;
+    }
+  }
+}

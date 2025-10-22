@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>Luciano Clementi-Portfolio</title>
+    <link href="css/grid.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="hidden">Luciano Clementi-Portfolio</h1>
+
+    <header id="main-header" class="grid-con">
+      <div class="col-span-full" id="logo-con">
+        <h1 id="site-title">Welcome</h1>
+      </div>
+      <nav class="col-span-full" id="main-nav">
+        <ul>
+          <li><a href="index.html" data-nav="home">Home</a></li>
+          <li><a href="#projects" data-nav="work">Work</a></li>
+          <li>
+            <a href="#testimonials" data-nav="testimonials">Testimonials</a>
+          </li>
+          <li><a href="contact.html" data-nav="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Introduction -->
+      <section id="hero" class="grid-con">
+        <div class="hero-surface col-span-full">
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <h1 class="hero-title">Websites made easy</h1>
+              <p class="hero-sub">
+                I design and build websites for multiple platforms, focusing on
+                clean code, strong visuals, and user experience.
+              </p>
+              <a class="btn-primary" href="contact.html">Let’s Work Together</a>
+            </div>
+            <div class="hero-media">
+              <img
+                class="hero-portrait"
+                src="images/placeholder_1.jpg"
+                alt="Portrait placeholder"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Me -->
+      <section id="about-us" class="grid-con">
+        <h2 class="col-span-full about-title">About Me</h2>
+        <div class="col-span-full about-text">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
+            odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
+            quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
+            mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
+            Vestibulum lacinia arcu eget nulla.
+          </p>
+          <p>
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos himenaeos. Curabitur sodales ligula in libero. Sed
+            dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean
+            quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis
+            tristique sem.
+          </p>
+          <p>
+            Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus,
+            iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis
+            ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper
+            vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
+            velit.
+          </p>
+        </div>
+      </section>
+
+      <!-- Filter -->
+      <section id="projects-filter" class="grid-con">
+        <div class="col-span-full projects-header">
+          <h2 class="projects-title">Projects</h2>
+          <p class="projects-sub">
+            Filter by category to quickly scan relevant work.
+          </p>
+        </div>
+
+        <form
+          class="col-span-full projects-filters"
+          id="projects-filters"
+          aria-label="Filter projects"
+        >
+          <fieldset class="filters-group">
+            <legend class="hidden">Project Categories</legend>
+
+            <label class="chip"
+              ><input
+                type="checkbox"
+                value="front-end"
+                class="chip-input"
+              /><span class="chip-ui">Front-end</span></label
+            >
+            <label class="chip"
+              ><input
+                type="checkbox"
+                value="back-end"
+                class="chip-input"
+              /><span class="chip-ui">Back-end</span></label
+            >
+            <label class="chip"
+              ><input type="checkbox" value="design" class="chip-input" /><span
+                class="chip-ui"
+                >Design</span
+              ></label
+            >
+            <label class="chip"
+              ><input
+                type="checkbox"
+                value="animation"
+                class="chip-input"
+              /><span class="chip-ui">Animation</span></label
+            >
+            <label class="chip"
+              ><input
+                type="checkbox"
+                value="video-editing"
+                class="chip-input"
+              /><span class="chip-ui">Video Editing</span></label
+            >
+            <label class="chip chip-all"
+              ><input type="checkbox" value="all" class="chip-input" /><span
+                class="chip-ui"
+                >All</span
+              ></label
+            >
+
+            <button type="button" class="btn-filter" id="apply-filter">
+              Filter
+            </button>
+            <button type="button" class="btn-clear" id="clear-filter">
+              Clear
+            </button>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- Projects -->
+      <div class="grid-con" id="projects">
+        <section
+          class="col-span-4 card project-card"
+          data-tags="front-end,back-end,design,animation,video-editing"
+        >
+          <a href="#" class="btn-primary view-link">View</a>
+          <img src="images/placeholder_1.jpg" alt="Project One thumbnail" />
+          <h2>Project One</h2>
+          <p>What problem you solved, how you approached it, and the impact.</p>
+          <div class="tag-list">
+            <span class="tag">Front-end</span>
+            <span class="tag">Back-end</span>
+            <span class="tag">Design</span>
+            <span class="tag">Animation</span>
+            <span class="tag">Video Editing</span>
+          </div>
+        </section>
+
+        <section
+          class="col-span-4 card project-card"
+          data-tags="front-end,back-end,design,animation,video-editing"
+        >
+          <a href="#" class="btn-primary view-link">View</a>
+          <img src="images/placeholder_1.jpg" alt="Project Two thumbnail" />
+          <h2>Project Two</h2>
+          <p>What problem you solved, how you approached it, and the impact.</p>
+          <div class="tag-list">
+            <span class="tag">Front-end</span>
+            <span class="tag">Back-end</span>
+            <span class="tag">Design</span>
+            <span class="tag">Animation</span>
+            <span class="tag">Video Editing</span>
+          </div>
+        </section>
+
+        <section
+          class="col-span-4 card project-card"
+          data-tags="front-end,back-end,design,animation,video-editing"
+        >
+          <a href="#" class="btn-primary view-link">View</a>
+          <img src="images/placeholder_1.jpg" alt="Project Three thumbnail" />
+          <h2>Project Three</h2>
+          <p>What problem you solved, how you approached it, and the impact.</p>
+          <div class="tag-list">
+            <span class="tag">Front-end</span>
+            <span class="tag">Back-end</span>
+            <span class="tag">Design</span>
+            <span class="tag">Animation</span>
+            <span class="tag">Video Editing</span>
+          </div>
+        </section>
+      </div>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="grid-con">
+        <h2 class="col-span-full testimonials-heading">Testimonials</h2>
+        <article class="testimonial-card col-span-4 m-col-span-4">
+          <div class="t-inner">
+            <div class="t-avatar-wrap">
+              <img
+                class="t-avatar"
+                src="images/placeholder_1.jpg"
+                alt="Client portrait placeholder"
+              />
+            </div>
+            <div class="t-copy">
+              <p class="t-text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer nec odio. Praesent libero.”
+              </p>
+              <p class="t-name">Tim Hendricks</p>
+              <p class="t-role">Product Manager</p>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card col-span-4 m-col-span-4">
+          <div class="t-inner">
+            <div class="t-avatar-wrap">
+              <img
+                class="t-avatar"
+                src="images/placeholder_1.jpg"
+                alt="Client portrait placeholder"
+              />
+            </div>
+            <div class="t-copy">
+              <p class="t-text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer nec odio. Praesent libero.”
+              </p>
+              <p class="t-name">Jane Doe</p>
+              <p class="t-role">Product Manager</p>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card col-span-4 m-col-span-4">
+          <div class="t-inner">
+            <div class="t-avatar-wrap">
+              <img
+                class="t-avatar"
+                src="images/placeholder_1.jpg"
+                alt="Client portrait placeholder"
+              />
+            </div>
+            <div class="t-copy">
+              <p class="t-text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Integer nec odio. Praesent libero.”
+              </p>
+              <p class="t-name">John Doe</p>
+              <p class="t-role">Product Manager</p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer grid-con">
+      <div class="footer-surface col-span-full">
+        <div class="footer-top">
+          <div class="footer-left">
+            <a class="footer-email" href="mailto:luciano.s.clementi@gmail.com"
+              >luciano.s.clementi@gmail.com</a
+            >
+          </div>
+          <nav class="footer-nav" aria-label="Footer">
+            <ul>
+              <li><a href="index.html" data-nav="home">Home</a></li>
+              <li><a href="#projects" data-nav="work">Work</a></li>
+              <li>
+                <a href="#testimonials" data-nav="testimonials">Testimonials</a>
+              </li>
+              <li><a href="contact.html" data-nav="contact">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="footer-right" aria-hidden="true">
+            <span class="icon-placeholder"></span>
+          </div>
+        </div>
+        <div class="footer-badges"></div>
+        <hr class="footer-divider" />
+        <div class="footer-bottom">
+          <p>&copy; <span class="js-year"></span> Luciano Clementi</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
