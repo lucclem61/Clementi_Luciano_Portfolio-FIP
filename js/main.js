@@ -19,6 +19,30 @@ const stopButton = document.querySelector("#stop-button");
 const volumeSlider = document.querySelector("#change-vol");
 const fullScreenButton = document.querySelector("#full-screen");
 
+// Project carousel (Cartoon Bumper) //
+const project1Track = document.querySelector(".js-project1-carousel-track");
+const project1LeftArrow = document.querySelector(".js-project1-carousel-left");
+const project1RightArrow = document.querySelector(
+  ".js-project1-carousel-right"
+);
+let project1IsAnimating = false;
+
+// Project carousel (Custom Earbuds) //
+const project2Track = document.querySelector(".js-project2-carousel-track");
+const project2LeftArrow = document.querySelector(".js-project2-carousel-left");
+const project2RightArrow = document.querySelector(
+  ".js-project2-carousel-right"
+);
+let project2IsAnimating = false;
+
+// Project carousel (Burple Re-brand) //
+const project3Track = document.querySelector(".js-project3-carousel-track");
+const project3LeftArrow = document.querySelector(".js-project3-carousel-left");
+const project3RightArrow = document.querySelector(
+  ".js-project3-carousel-right"
+);
+let project3IsAnimating = false;
+
 // Functions //
 function setCurrentYear() {
   const now = new Date();
@@ -194,18 +218,30 @@ function handleFullScreenClick() {
 }
 
 function handleControlsMouseEnter() {
+  if (isSmallScreen()) {
+    return;
+  }
   showControls();
 }
 
 function handleControlsMouseLeave() {
+  if (isSmallScreen()) {
+    return;
+  }
   hideControls();
 }
 
 function handleVideoMouseEnter() {
+  if (isSmallScreen()) {
+    return;
+  }
   showControls();
 }
 
 function handleVideoMouseLeave() {
+  if (isSmallScreen()) {
+    return;
+  }
   hideControls();
 }
 
@@ -217,6 +253,213 @@ function handleVideoEnded() {
   if (isSmallScreen()) {
     showControls();
   }
+}
+
+// Project carousel helpers (Cartoon Bumper) //
+function handleProject1TransitionEndNext() {
+  if (!project1Track) {
+    return;
+  }
+  project1Track.removeEventListener(
+    "transitionend",
+    handleProject1TransitionEndNext
+  );
+  project1Track.appendChild(project1Track.firstElementChild);
+  project1Track.style.transition = "none";
+  project1Track.style.transform = "translateX(0)";
+  project1Track.offsetHeight;
+  project1Track.style.transition = "transform 0.5s ease";
+  project1IsAnimating = false;
+}
+
+function handleProject1TransitionEndPrev() {
+  if (!project1Track) {
+    return;
+  }
+  project1Track.removeEventListener(
+    "transitionend",
+    handleProject1TransitionEndPrev
+  );
+  project1IsAnimating = false;
+}
+
+function slideProject1Next() {
+  if (!project1Track || project1IsAnimating) {
+    return;
+  }
+  project1IsAnimating = true;
+  project1Track.style.transform = "translateX(-100%)";
+  project1Track.addEventListener(
+    "transitionend",
+    handleProject1TransitionEndNext
+  );
+}
+
+function slideProject1Prev() {
+  if (!project1Track || project1IsAnimating) {
+    return;
+  }
+  const lastItem = project1Track.lastElementChild;
+  if (!lastItem) {
+    return;
+  }
+  project1IsAnimating = true;
+  project1Track.style.transition = "none";
+  project1Track.insertBefore(lastItem, project1Track.firstElementChild);
+  project1Track.style.transform = "translateX(-100%)";
+  project1Track.offsetHeight;
+  project1Track.style.transition = "transform 0.5s ease";
+  project1Track.style.transform = "translateX(0)";
+  project1Track.addEventListener(
+    "transitionend",
+    handleProject1TransitionEndPrev
+  );
+}
+
+function handleProject1LeftClick() {
+  slideProject1Prev();
+}
+
+function handleProject1RightClick() {
+  slideProject1Next();
+}
+
+// Project carousel helpers (Custom Earbuds) //
+function handleProject2TransitionEndNext() {
+  if (!project2Track) {
+    return;
+  }
+  project2Track.removeEventListener(
+    "transitionend",
+    handleProject2TransitionEndNext
+  );
+  project2Track.appendChild(project2Track.firstElementChild);
+  project2Track.style.transition = "none";
+  project2Track.style.transform = "translateX(0)";
+  project2Track.offsetHeight;
+  project2Track.style.transition = "transform 0.5s ease";
+  project2IsAnimating = false;
+}
+
+function handleProject2TransitionEndPrev() {
+  if (!project2Track) {
+    return;
+  }
+  project2Track.removeEventListener(
+    "transitionend",
+    handleProject2TransitionEndPrev
+  );
+  project2IsAnimating = false;
+}
+
+function slideProject2Next() {
+  if (!project2Track || project2IsAnimating) {
+    return;
+  }
+  project2IsAnimating = true;
+  project2Track.style.transform = "translateX(-100%)";
+  project2Track.addEventListener(
+    "transitionend",
+    handleProject2TransitionEndNext
+  );
+}
+
+function slideProject2Prev() {
+  if (!project2Track || project2IsAnimating) {
+    return;
+  }
+  const lastItem = project2Track.lastElementChild;
+  if (!lastItem) {
+    return;
+  }
+  project2IsAnimating = true;
+  project2Track.style.transition = "none";
+  project2Track.insertBefore(lastItem, project2Track.firstElementChild);
+  project2Track.style.transform = "translateX(-100%)";
+  project2Track.offsetHeight;
+  project2Track.style.transition = "transform 0.5s ease";
+  project2Track.style.transform = "translateX(0)";
+  project2Track.addEventListener(
+    "transitionend",
+    handleProject2TransitionEndPrev
+  );
+}
+
+function handleProject2LeftClick() {
+  slideProject2Prev();
+}
+
+function handleProject2RightClick() {
+  slideProject2Next();
+}
+
+// Project carousel helpers (Burple Re-brand) //
+function handleProject3TransitionEndNext() {
+  if (!project3Track) {
+    return;
+  }
+  project3Track.removeEventListener(
+    "transitionend",
+    handleProject3TransitionEndNext
+  );
+  project3Track.appendChild(project3Track.firstElementChild);
+  project3Track.style.transition = "none";
+  project3Track.style.transform = "translateX(0)";
+  project3Track.offsetHeight;
+  project3Track.style.transition = "transform 0.5s ease";
+  project3IsAnimating = false;
+}
+
+function handleProject3TransitionEndPrev() {
+  if (!project3Track) {
+    return;
+  }
+  project3Track.removeEventListener(
+    "transitionend",
+    handleProject3TransitionEndPrev
+  );
+  project3IsAnimating = false;
+}
+
+function slideProject3Next() {
+  if (!project3Track || project3IsAnimating) {
+    return;
+  }
+  project3IsAnimating = true;
+  project3Track.style.transform = "translateX(-100%)";
+  project3Track.addEventListener(
+    "transitionend",
+    handleProject3TransitionEndNext
+  );
+}
+
+function slideProject3Prev() {
+  if (!project3Track || project3IsAnimating) {
+    return;
+  }
+  const lastItem = project3Track.lastElementChild;
+  if (!lastItem) {
+    return;
+  }
+  project3IsAnimating = true;
+  project3Track.style.transition = "none";
+  project3Track.insertBefore(lastItem, project3Track.firstElementChild);
+  project3Track.style.transform = "translateX(-100%)";
+  project3Track.offsetHeight;
+  project3Track.style.transition = "transform 0.5s ease";
+  project3Track.style.transform = "translateX(0)";
+  project3Track.addEventListener(
+    "transitionend",
+    handleProject3TransitionEndPrev
+  );
+}
+
+function handleProject3LeftClick() {
+  slideProject3Prev();
+}
+
+function handleProject3RightClick() {
+  slideProject3Next();
 }
 
 // Event listeners //
@@ -258,6 +501,21 @@ if (playerElement && videoControls) {
   playerElement.addEventListener("mouseleave", handleVideoMouseLeave);
   playerElement.addEventListener("click", handleVideoClick);
   playerElement.addEventListener("ended", handleVideoEnded);
+}
+
+if (project1Track && project1LeftArrow && project1RightArrow) {
+  project1LeftArrow.addEventListener("click", handleProject1LeftClick);
+  project1RightArrow.addEventListener("click", handleProject1RightClick);
+}
+
+if (project2Track && project2LeftArrow && project2RightArrow) {
+  project2LeftArrow.addEventListener("click", handleProject2LeftClick);
+  project2RightArrow.addEventListener("click", handleProject2RightClick);
+}
+
+if (project3Track && project3LeftArrow && project3RightArrow) {
+  project3LeftArrow.addEventListener("click", handleProject3LeftClick);
+  project3RightArrow.addEventListener("click", handleProject3RightClick);
 }
 
 // Init //

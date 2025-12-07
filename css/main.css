@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   background-color: #f7f5ed;
@@ -354,6 +355,94 @@ footer.site-footer .footer-bottom p {
 #player-container input[type=range]:focus::-moz-range-thumb {
   outline: 3px solid #457713;
   outline-offset: 0.125rem;
+}
+
+/* Project video inside cards – I am giving it a similar look to the main player */
+.project-video {
+  margin-top: 16px;
+}
+
+.project-video video {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #000;
+}
+
+.project-carousel {
+  margin-top: 16px;
+}
+
+.project-carousel-viewport {
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.project-carousel-item {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* I am letting the image grow to fill the viewport height without cropping */
+.project-carousel .project-carousel-item img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* Tablet: height increased by about one third */
+@media screen and (min-width: 768px) {
+  .project-carousel-viewport {
+    height: 430px;
+  }
+}
+/* Desktop: height increased by about one third */
+@media screen and (min-width: 1024px) {
+  .project-carousel-viewport {
+    height: 510px;
+  }
+}
+.project-carousel-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.project-carousel-arrow {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.12);
 }
 
 #hero {
