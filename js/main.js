@@ -8,6 +8,17 @@ const applyFilterBtn = document.querySelector("#apply-filter");
 const clearFilterBtn = document.querySelector("#clear-filter");
 const projectCards = document.querySelectorAll(".project-card");
 
+const playerContainer = document.querySelector("#player-container");
+const playerElement = playerContainer
+  ? playerContainer.querySelector("video")
+  : null;
+const videoControls = document.querySelector("#video-controls");
+const playButton = document.querySelector("#play-button");
+const pauseButton = document.querySelector("#pause-button");
+const stopButton = document.querySelector("#stop-button");
+const volumeSlider = document.querySelector("#change-vol");
+const fullScreenButton = document.querySelector("#full-screen");
+
 // Functions //
 function setCurrentYear() {
   const now = new Date();
@@ -17,18 +28,18 @@ function setCurrentYear() {
 }
 
 function highlightActiveNav() {
-  const path = location.pathname.split("/").pop() || "index.html";
+  const path = window.location.pathname.split("/").pop() || "index.html";
   for (let i = 0; i < navLinks.length; i += 1) {
     const link = navLinks[i];
     const href = link.getAttribute("href");
-    if (href === path) {
+    if (href === path || (href === "index.html" && path === "")) {
       link.classList.add("active");
     }
   }
 }
 
-function trimString(s) {
-  return s.trim();
+function trimString(value) {
+  return value.trim();
 }
 
 function getSelectedTags() {
@@ -50,8 +61,8 @@ function showAllProjects() {
 
 function applyProjectFilter() {
   const selected = getSelectedTags();
-
   const hasAll = selected.indexOf("all") !== -1;
+
   if (hasAll || selected.length === 0) {
     showAllProjects();
     return;
@@ -61,8 +72,8 @@ function applyProjectFilter() {
     const card = projectCards[i];
     const tagsStr = card.getAttribute("data-tags") || "";
     const tags = tagsStr.split(",").map(trimString);
-
     let include = true;
+
     for (let j = 0; j < selected.length; j += 1) {
       if (tags.indexOf(selected[j]) === -1) {
         include = false;
@@ -88,12 +99,145 @@ function handleClearClick() {
   clearProjectFilter();
 }
 
+// Video player functions //
+function initializePlayer() {
+  if (!playerElement || !videoControls) {
+    return;
+  }
+  // I am hiding the default browser controls when JS is available
+  playerElement.controls = false;
+  videoControls.classList.remove("hidded");
+}
+
+function playVideo() {
+  if (!playerElement) {
+    return;
+  }
+  playerElement.play();
+}
+
+function pauseVideo() {
+  if (!playerElement) {
+    return;
+  }
+  playerElement.pause();
+}
+
+function stopVideo() {
+  if (!playerElement) {
+    return;
+  }
+  playerElement.pause();
+  playerElement.currentTime = 0;
+}
+
+function changeVolume() {
+  if (!playerElement || !volumeSlider) {
+    return;
+  }
+  playerElement.volume = Number(volumeSlider.value);
+}
+
+function toggleFullScreen() {
+  if (!playerContainer) {
+    return;
+  }
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    playerContainer.requestFullscreen();
+  }
+}
+
+function hideControls() {
+  if (!videoControls) {
+    return;
+  }
+  videoControls.classList.add("hide");
+}
+
+function showControls() {
+  if (!videoControls) {
+    return;
+  }
+  videoControls.classList.remove("hide");
+}
+
+function handlePlayClick() {
+  playVideo();
+}
+
+function handlePauseClick() {
+  pauseVideo();
+}
+
+function handleStopClick() {
+  stopVideo();
+}
+
+function handleVolumeInput() {
+  changeVolume();
+}
+
+function handleFullScreenClick() {
+  toggleFullScreen();
+}
+
+function handleControlsMouseEnter() {
+  showControls();
+}
+
+function handleControlsMouseLeave() {
+  hideControls();
+}
+
+function handleVideoMouseEnter() {
+  showControls();
+}
+
+function handleVideoMouseLeave() {
+  hideControls();
+}
+
+// Event listeners //
 if (applyFilterBtn) {
   applyFilterBtn.addEventListener("click", handleApplyClick);
 }
+
 if (clearFilterBtn) {
   clearFilterBtn.addEventListener("click", handleClearClick);
 }
 
+if (playerElement && videoControls) {
+  initializePlayer();
+
+  if (playButton) {
+    playButton.addEventListener("click", handlePlayClick);
+  }
+
+  if (pauseButton) {
+    pauseButton.addEventListener("click", handlePauseClick);
+  }
+
+  if (stopButton) {
+    stopButton.addEventListener("click", handleStopClick);
+  }
+
+  if (volumeSlider) {
+    volumeSlider.addEventListener("input", handleVolumeInput);
+    volumeSlider.addEventListener("change", handleVolumeInput);
+  }
+
+  if (fullScreenButton) {
+    fullScreenButton.addEventListener("click", handleFullScreenClick);
+  }
+
+  videoControls.addEventListener("mouseenter", handleControlsMouseEnter);
+  videoControls.addEventListener("mouseleave", handleControlsMouseLeave);
+  playerElement.addEventListener("mouseenter", handleVideoMouseEnter);
+  playerElement.addEventListener("mouseleave", handleVideoMouseLeave);
+}
+
+// Init //
 setCurrentYear();
 highlightActiveNav();

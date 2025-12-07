@@ -1,11 +1,7 @@
 @use "../abstracts";
 
 footer.site-footer {
-  background: linear-gradient(
-    145deg,
-    abstracts.$space-blue-1,
-    abstracts.$space-blue-2
-  );
+  background-color: abstracts.$secondary-color;
   color: #fff;
   border-radius: 16px 16px 0 0;
   margin-top: 40px;
@@ -38,7 +34,7 @@ footer.site-footer {
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        color: abstracts.$secondary-color;
+        color: abstracts.$accent-color;
       }
     }
   }
@@ -65,6 +61,7 @@ footer.site-footer {
         &:hover {
           background-color: rgba(255, 255, 255, 0.15);
         }
+
         &.active {
           background-color: rgba(255, 255, 255, 0.25);
         }
@@ -118,6 +115,7 @@ footer.site-footer {
     .footer-left {
       justify-content: flex-start;
     }
+
     .footer-right {
       justify-content: flex-end;
     }

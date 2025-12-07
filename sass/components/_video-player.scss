@@ -1,0 +1,103 @@
+#player-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-controls.hidded {
+  display: none;
+}
+
+.video-controls {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.5)
+  );
+  display: flex;
+  transition: all 0.2s ease-in-out;
+}
+
+.video-controls.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#player-container button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.fa,
+.fa-solid {
+  color: #fff;
+  font-size: 28px;
+  margin-left: 20px;
+}
+
+.fa-volume-up {
+  margin-left: auto;
+}
+
+/*********** Range slider styles scoped to player ***********/
+#player-container input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 25rem;
+}
+
+#player-container input[type="range"]:focus {
+  outline: none;
+}
+
+/* Chrome, Safari, Opera, Edge Chromium track */
+#player-container input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #5ed22d;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Chrome, Safari, Opera, Edge Chromium thumb */
+#player-container input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -4px;
+  background-color: #457713;
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+#player-container input[type="range"]:focus::-webkit-slider-thumb {
+  outline: 3px solid #457713;
+  outline-offset: 0.125rem;
+}
+
+/* Firefox track */
+#player-container input[type="range"]::-moz-range-track {
+  background-color: #5ed22d;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Firefox thumb */
+#player-container input[type="range"]::-moz-range-thumb {
+  background-color: #457713;
+  border: none;
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+#player-container input[type="range"]:focus::-moz-range-thumb {
+  outline: 3px solid #457713;
+  outline-offset: 0.125rem;
+}
