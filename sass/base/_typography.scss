@@ -1,22 +1,26 @@
-@use '../abstracts';
+@use "../abstracts";
 
 body {
   font-family: abstracts.$body-font-family;
+  background-color: abstracts.$surface-beige;
+  color: abstracts.$body-text-color;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: abstracts.$heading-font-family;
+  color: abstracts.$heading-color;
 }
 
 h2 {
-    font-size: 36px;
-    color: abstracts.$accent-color;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    letter-spacing: -2px;
+  font-size: 36px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
 }
 
 p {
-    line-height: 24px;
-    margin-bottom: 20px;
+  line-height: 24px;
+  margin-bottom: 20px;
 }

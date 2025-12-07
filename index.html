@@ -5,34 +5,45 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <title>Luciano Clementi-Portfolio</title>
     <link href="css/grid.css" rel="stylesheet" />
+    <!-- I am loading Font Awesome for the custom video controls -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link href="css/main.css" rel="stylesheet" />
   </head>
   <body>
     <h1 class="hidden">Luciano Clementi-Portfolio</h1>
 
     <header id="main-header" class="grid-con">
-      <div class="col-span-full" id="logo-con">
-        <h1 id="site-title">Welcome</h1>
+      <div class="header-bar col-span-full">
+        <div class="header-brand">
+          <img
+            class="brand-logo"
+            src="images/Logo-1.svg"
+            alt="Luciano Clementi logo"
+          />
+          <span class="brand-name">Luciano Clementi</span>
+        </div>
+        <nav id="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html" data-nav="home">Home</a></li>
+            <li><a href="#projects" data-nav="work">Work</a></li>
+            <li>
+              <a href="#testimonials" data-nav="testimonials">Testimonials</a>
+            </li>
+            <li><a href="contact.html" data-nav="contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav class="col-span-full" id="main-nav">
-        <ul>
-          <li><a href="index.html" data-nav="home">Home</a></li>
-          <li><a href="#projects" data-nav="work">Work</a></li>
-          <li>
-            <a href="#testimonials" data-nav="testimonials">Testimonials</a>
-          </li>
-          <li><a href="contact.html" data-nav="contact">Contact</a></li>
-        </ul>
-      </nav>
     </header>
 
     <main>
-      <!-- Introduction -->
       <section id="hero" class="grid-con">
         <div class="hero-surface col-span-full">
           <div class="hero-inner">
             <div class="hero-copy">
-              <h1 class="hero-title">Websites made easy</h1>
+              <h2 class="hero-title">Websites made easy</h2>
               <p class="hero-sub">
                 I design and build websites for multiple platforms, focusing on
                 clean code, strong visuals, and user experience.
@@ -50,7 +61,45 @@
         </div>
       </section>
 
-      <!-- About Me -->
+      <!-- Custom video player section -->
+      <section id="video-section" class="grid-con">
+        <div id="player-container" class="col-span-full">
+          <video controls preload="metadata" poster="images/thumbnail.png">
+            <source src="video/introname.mp4" type="video/mp4" />
+            <p>
+              You are using an older browser that does not support HTML5 video.
+              Please update your browser.
+            </p>
+          </video>
+
+          <div class="video-controls hidded" id="video-controls">
+            <button id="play-button" aria-label="Play video">
+              <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+            </button>
+            <button id="pause-button" aria-label="Pause video">
+              <i class="fa fa-pause-circle-o" aria-hidden="true"></i>
+            </button>
+            <button id="stop-button" aria-label="Stop video">
+              <i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+            </button>
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <input
+              type="range"
+              id="change-vol"
+              step="0.05"
+              min="0"
+              max="1"
+              value="1"
+              aria-label="Change volume"
+            />
+            <button id="full-screen" aria-label="Toggle full screen">
+              <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- End custom video player section -->
+
       <section id="about-us" class="grid-con">
         <h2 class="col-span-full about-title">About Me</h2>
         <div class="col-span-full about-text">
@@ -78,7 +127,6 @@
         </div>
       </section>
 
-      <!-- Filter -->
       <section id="projects-filter" class="grid-con">
         <div class="col-span-full projects-header">
           <h2 class="projects-title">Projects</h2>
@@ -146,16 +194,13 @@
         </form>
       </section>
 
-      <!-- Projects -->
       <div class="grid-con" id="projects">
         <section
           class="col-span-4 card project-card"
           data-tags="front-end,back-end,design,animation,video-editing"
         >
           <a href="#" class="btn-primary view-link">View</a>
-          <img src="images/placeholder_1.jpg" alt="Project One thumbnail" />
           <h2>Project One</h2>
-          <p>What problem you solved, how you approached it, and the impact.</p>
           <div class="tag-list">
             <span class="tag">Front-end</span>
             <span class="tag">Back-end</span>
@@ -163,6 +208,8 @@
             <span class="tag">Animation</span>
             <span class="tag">Video Editing</span>
           </div>
+          <img src="images/placeholder_1.jpg" alt="Project One thumbnail" />
+          <p>What problem you solved, how you approached it, and the impact.</p>
         </section>
 
         <section
@@ -170,9 +217,7 @@
           data-tags="front-end,back-end,design,animation,video-editing"
         >
           <a href="#" class="btn-primary view-link">View</a>
-          <img src="images/placeholder_1.jpg" alt="Project Two thumbnail" />
           <h2>Project Two</h2>
-          <p>What problem you solved, how you approached it, and the impact.</p>
           <div class="tag-list">
             <span class="tag">Front-end</span>
             <span class="tag">Back-end</span>
@@ -180,6 +225,8 @@
             <span class="tag">Animation</span>
             <span class="tag">Video Editing</span>
           </div>
+          <img src="images/placeholder_1.jpg" alt="Project Two thumbnail" />
+          <p>What problem you solved, how you approached it, and the impact.</p>
         </section>
 
         <section
@@ -187,9 +234,7 @@
           data-tags="front-end,back-end,design,animation,video-editing"
         >
           <a href="#" class="btn-primary view-link">View</a>
-          <img src="images/placeholder_1.jpg" alt="Project Three thumbnail" />
           <h2>Project Three</h2>
-          <p>What problem you solved, how you approached it, and the impact.</p>
           <div class="tag-list">
             <span class="tag">Front-end</span>
             <span class="tag">Back-end</span>
@@ -197,10 +242,11 @@
             <span class="tag">Animation</span>
             <span class="tag">Video Editing</span>
           </div>
+          <img src="images/placeholder_1.jpg" alt="Project Three thumbnail" />
+          <p>What problem you solved, how you approached it, and the impact.</p>
         </section>
       </div>
 
-      <!-- Testimonials -->
       <section id="testimonials" class="grid-con">
         <h2 class="col-span-full testimonials-heading">Testimonials</h2>
         <article class="testimonial-card col-span-4 m-col-span-4">
