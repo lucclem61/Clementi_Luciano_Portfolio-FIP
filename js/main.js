@@ -99,7 +99,11 @@ function handleClearClick() {
   clearProjectFilter();
 }
 
-// Video player functions //
+// Video player helpers //
+function isSmallScreen() {
+  return window.matchMedia("(max-width: 767px)").matches;
+}
+
 function initializePlayer() {
   if (!playerElement || !videoControls) {
     return;
@@ -107,6 +111,7 @@ function initializePlayer() {
   // I am hiding the default browser controls when JS is available
   playerElement.controls = false;
   videoControls.classList.remove("hidded");
+  videoControls.classList.remove("hide");
 }
 
 function playVideo() {
@@ -114,6 +119,9 @@ function playVideo() {
     return;
   }
   playerElement.play();
+  if (isSmallScreen()) {
+    hideControls();
+  }
 }
 
 function pauseVideo() {
@@ -121,6 +129,7 @@ function pauseVideo() {
     return;
   }
   playerElement.pause();
+  showControls();
 }
 
 function stopVideo() {
@@ -129,6 +138,7 @@ function stopVideo() {
   }
   playerElement.pause();
   playerElement.currentTime = 0;
+  showControls();
 }
 
 function changeVolume() {
@@ -199,6 +209,16 @@ function handleVideoMouseLeave() {
   hideControls();
 }
 
+function handleVideoClick() {
+  showControls();
+}
+
+function handleVideoEnded() {
+  if (isSmallScreen()) {
+    showControls();
+  }
+}
+
 // Event listeners //
 if (applyFilterBtn) {
   applyFilterBtn.addEventListener("click", handleApplyClick);
@@ -236,6 +256,8 @@ if (playerElement && videoControls) {
   videoControls.addEventListener("mouseleave", handleControlsMouseLeave);
   playerElement.addEventListener("mouseenter", handleVideoMouseEnter);
   playerElement.addEventListener("mouseleave", handleVideoMouseLeave);
+  playerElement.addEventListener("click", handleVideoClick);
+  playerElement.addEventListener("ended", handleVideoEnded);
 }
 
 // Init //
