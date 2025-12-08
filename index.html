@@ -25,6 +25,13 @@
           />
           <span class="brand-name">Luciano Clementi</span>
         </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </button>
+
         <nav id="main-nav" aria-label="Main navigation">
           <ul>
             <li><a href="index.html" data-nav="home">Home</a></li>
@@ -69,7 +76,7 @@
             poster="images/thumbnail.png"
             aria-label="Intro video"
           >
-            <source src="video/introname.mp4" type="video/mp4" />
+            <source src="video/demo_reel.mp4" type="video/mp4" />
             <p>
               You are using an older browser that does not support HTML5 video.
               Please update your browser.
@@ -202,16 +209,7 @@
           class="col-span-4 card project-card"
           data-tags="front-end,back-end,design,animation,video-editing"
         >
-          <a href="#" class="btn-primary view-link">View</a>
           <h2>Cartoon Bumper</h2>
-
-          <div class="tag-list">
-            <span class="tag">Front-end</span>
-            <span class="tag">Back-end</span>
-            <span class="tag">Design</span>
-            <span class="tag">Animation</span>
-            <span class="tag">Video Editing</span>
-          </div>
 
           <div class="project-carousel">
             <div class="project-carousel-viewport">
@@ -260,86 +258,167 @@
             </div>
           </div>
 
+          <div class="project-meta-row">
+            <div class="tag-list">
+              <span class="tag">Front-end</span>
+              <span class="tag">Back-end</span>
+              <span class="tag">Design</span>
+              <span class="tag">Animation</span>
+              <span class="tag">Video Editing</span>
+            </div>
+            <a href="#" class="btn-primary view-link">View</a>
+          </div>
+
           <p>What problem you solved, how you approached it, and the impact.</p>
+
+          <div class="project-details">
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Overview</h3>
+              <p class="project-details-text">
+                Short animated bumper designed to introduce a fictional cartoon
+                channel. The goal was to capture a playful tone while keeping
+                timings tight and legible for broadcast.
+              </p>
+            </div>
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Programs used</h3>
+              <ul class="project-details-list">
+                <li>Adobe After Effects</li>
+                <li>Adobe Illustrator</li>
+                <li>Adobe Premiere Pro</li>
+              </ul>
+            </div>
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Problems faced and solved</h3>
+              <p class="project-details-text">
+                The main challenge was keeping the animation energetic without
+                overwhelming the viewer. I solved this by simplifying shapes,
+                limiting the color palette, and refining easing curves so the
+                motion feels intentional instead of chaotic.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section
           class="col-span-4 card project-card"
           data-tags="front-end,back-end,design,animation,video-editing"
         >
-          <a href="#" class="btn-primary view-link">View</a>
           <h2>Custom Earbuds</h2>
-          <div class="tag-list">
-            <span class="tag">Front-end</span>
-            <span class="tag">Back-end</span>
-            <span class="tag">Design</span>
-            <span class="tag">Animation</span>
-            <span class="tag">Video Editing</span>
+
+          <div class="model-wrapper">
+            <div class="model-viewer-container">
+              <model-viewer
+                src="model/modelFixed.glb"
+                camera-controls
+                interaction-prompt="none"
+                shadow-intensity="1"
+                exposure="1.7"
+                reveal="auto"
+                preload
+                loading="eager"
+                ar
+                ar-modes="webxr scene-viewer"
+                style="--min-hotspot-opacity: 1"
+              >
+                <button
+                  class="model-hotspot"
+                  slot="hotspot-1"
+                  data-visibility-attribute="visible"
+                  data-position="-3.4531841128939362m -2.677009621537202m 5.516505441925659m"
+                  data-normal="0.12213653619958871m -0.17148484851544582m 0.9775866269823874m"
+                  aria-label="Battery"
+                >
+                  <span class="model-annotation">
+                    <strong>Battery</strong>
+                    <span>High-efficiency power cell improves runtime.</span>
+                  </span>
+                </button>
+
+                <button
+                  class="model-hotspot"
+                  slot="hotspot-2"
+                  data-visibility-attribute="visible"
+                  data-position="7.817504967572006m 8.02138937984829m 1.647033457060295m"
+                  data-normal="0.05934875837953144m 0.20695489382665305m 0.9765487170643392m"
+                  aria-label="Comfort Grip"
+                >
+                  <span class="model-annotation">
+                    <strong>Comfort Grip</strong>
+                    <span
+                      >Soft silicone shell fits a wide range of ear
+                      shapes.</span
+                    >
+                  </span>
+                </button>
+
+                <button
+                  class="model-hotspot"
+                  slot="hotspot-3"
+                  data-visibility-attribute="visible"
+                  data-position="-11.576788139600403m -2.6046741793994777m -8.627433558178163m"
+                  data-normal="-0.9470358054103406m 0.08775172170380677m -0.3089058410079118m"
+                  aria-label="Driver"
+                >
+                  <span class="model-annotation">
+                    <strong>Driver</strong>
+                    <span
+                      >Precision tuned speaker delivers balanced audio.</span
+                    >
+                  </span>
+                </button>
+              </model-viewer>
+            </div>
           </div>
 
-          <div class="project-carousel">
-            <div class="project-carousel-viewport">
-              <div class="project-carousel-track js-project2-carousel-track">
-                <div class="project-carousel-item">
-                  <img
-                    src="images/placeholder_1.jpg"
-                    alt="Custom Earbuds frame one"
-                  />
-                </div>
-                <div class="project-carousel-item">
-                  <img
-                    src="images/placeholder_1.jpg"
-                    alt="Custom Earbuds frame two"
-                  />
-                </div>
-                <div class="project-carousel-item">
-                  <img
-                    src="images/placeholder_1.jpg"
-                    alt="Custom Earbuds frame three"
-                  />
-                </div>
-                <div class="project-carousel-item">
-                  <img
-                    src="images/placeholder_1.jpg"
-                    alt="Custom Earbuds frame four"
-                  />
-                </div>
-              </div>
+          <div class="project-meta-row">
+            <div class="tag-list">
+              <span class="tag">Front-end</span>
+              <span class="tag">Back-end</span>
+              <span class="tag">Design</span>
+              <span class="tag">Animation</span>
+              <span class="tag">Video Editing</span>
             </div>
-            <div class="project-carousel-arrows" aria-hidden="false">
-              <button
-                type="button"
-                class="project-carousel-arrow js-project2-carousel-left"
-                aria-label="Previous image"
-              >
-                &#60;
-              </button>
-              <button
-                type="button"
-                class="project-carousel-arrow js-project2-carousel-right"
-                aria-label="Next image"
-              >
-                &#62;
-              </button>
-            </div>
+            <a href="#" class="btn-primary view-link">View</a>
           </div>
 
           <p>What problem you solved, how you approached it, and the impact.</p>
+
+          <div class="project-details">
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Overview</h3>
+              <p class="project-details-text">
+                Interactive product concept for custom earbuds. The focus was on
+                presenting the model in a way that feels tactile and premium
+                while still loading quickly in the browser.
+              </p>
+            </div>
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Programs used</h3>
+              <ul class="project-details-list">
+                <li>Blender</li>
+                <li>Substance Painter</li>
+                <li>Figma</li>
+                <li>Visual Studio Code</li>
+              </ul>
+            </div>
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Problems faced and solved</h3>
+              <p class="project-details-text">
+                The model was initially too heavy for the web. I reduced
+                polygons, optimized textures, and adjusted lighting to keep the
+                file size manageable while still showing enough detail for the
+                hotspots to feel meaningful.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section
           class="col-span-4 card project-card"
           data-tags="front-end,back-end,design,animation,video-editing"
         >
-          <a href="#" class="btn-primary view-link">View</a>
           <h2>Burple Re-brand</h2>
-          <div class="tag-list">
-            <span class="tag">Front-end</span>
-            <span class="tag">Back-end</span>
-            <span class="tag">Design</span>
-            <span class="tag">Animation</span>
-            <span class="tag">Video Editing</span>
-          </div>
 
           <div class="project-carousel">
             <div class="project-carousel-viewport">
@@ -388,7 +467,46 @@
             </div>
           </div>
 
+          <div class="project-meta-row">
+            <div class="tag-list">
+              <span class="tag">Front-end</span>
+              <span class="tag">Back-end</span>
+              <span class="tag">Design</span>
+              <span class="tag">Animation</span>
+              <span class="tag">Video Editing</span>
+            </div>
+            <a href="#" class="btn-primary view-link">View</a>
+          </div>
+
           <p>What problem you solved, how you approached it, and the impact.</p>
+
+          <div class="project-details">
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Overview</h3>
+              <p class="project-details-text">
+                Brand refresh for a playful beverage company. The project
+                covered logo animation, packaging visuals, and a simple landing
+                page layout.
+              </p>
+            </div>
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Programs used</h3>
+              <ul class="project-details-list">
+                <li>Adobe Illustrator</li>
+                <li>Adobe Photoshop</li>
+                <li>Figma</li>
+              </ul>
+            </div>
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Problems faced and solved</h3>
+              <p class="project-details-text">
+                The brand had to feel more modern without losing its original
+                personality. I tested different type pairings, colors, and
+                layouts until the updated look felt fresh but still familiar to
+                existing customers.
+              </p>
+            </div>
+          </div>
         </section>
       </div>
 
@@ -484,6 +602,10 @@
       </div>
     </footer>
 
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
     <script src="js/main.js"></script>
   </body>
 </html>
