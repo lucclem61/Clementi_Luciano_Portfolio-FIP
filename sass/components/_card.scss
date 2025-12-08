@@ -11,6 +11,65 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
+.project-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.project-meta-row .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-meta-row .view-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: static;
+  margin-left: auto;
+}
+
+.project-details {
+  display: none;
+  margin-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 16px;
+}
+
+.project-card.is-open .project-details {
+  display: block;
+}
+
+.project-details-section + .project-details-section {
+  margin-top: 16px;
+}
+
+.project-details-heading {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.project-details-text {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.project-details-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.project-details-list li + li {
+  margin-top: 4px;
+}
+
 @media screen and (min-width: 768px) {
   .card {
     margin: 0;

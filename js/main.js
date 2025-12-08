@@ -1,13 +1,13 @@
-// Variables //
 const yearTargets = document.querySelectorAll(".js-year, #year");
 const navLinks = document.querySelectorAll("#main-nav a, .footer-nav a");
-
 const filterForm = document.querySelector("#projects-filters");
 const chipInputs = filterForm ? filterForm.querySelectorAll(".chip-input") : [];
 const applyFilterBtn = document.querySelector("#apply-filter");
 const clearFilterBtn = document.querySelector("#clear-filter");
 const projectCards = document.querySelectorAll(".project-card");
-
+const projectViewButtons = document.querySelectorAll(
+  ".project-card .view-link"
+);
 const playerContainer = document.querySelector("#player-container");
 const playerElement = playerContainer
   ? playerContainer.querySelector("video")
@@ -18,32 +18,22 @@ const pauseButton = document.querySelector("#pause-button");
 const stopButton = document.querySelector("#stop-button");
 const volumeSlider = document.querySelector("#change-vol");
 const fullScreenButton = document.querySelector("#full-screen");
-
-// Project carousel (Cartoon Bumper) //
 const project1Track = document.querySelector(".js-project1-carousel-track");
 const project1LeftArrow = document.querySelector(".js-project1-carousel-left");
 const project1RightArrow = document.querySelector(
   ".js-project1-carousel-right"
 );
 let project1IsAnimating = false;
-
-// Project carousel (Custom Earbuds) //
-const project2Track = document.querySelector(".js-project2-carousel-track");
-const project2LeftArrow = document.querySelector(".js-project2-carousel-left");
-const project2RightArrow = document.querySelector(
-  ".js-project2-carousel-right"
-);
-let project2IsAnimating = false;
-
-// Project carousel (Burple Re-brand) //
 const project3Track = document.querySelector(".js-project3-carousel-track");
 const project3LeftArrow = document.querySelector(".js-project3-carousel-left");
 const project3RightArrow = document.querySelector(
   ".js-project3-carousel-right"
 );
 let project3IsAnimating = false;
+const headerElement = document.querySelector("#main-header");
+const navToggle = document.querySelector(".nav-toggle");
+const mobileNavLinks = document.querySelectorAll("#main-nav a");
 
-// Functions //
 function setCurrentYear() {
   const now = new Date();
   for (let i = 0; i < yearTargets.length; i += 1) {
@@ -86,24 +76,20 @@ function showAllProjects() {
 function applyProjectFilter() {
   const selected = getSelectedTags();
   const hasAll = selected.indexOf("all") !== -1;
-
   if (hasAll || selected.length === 0) {
     showAllProjects();
     return;
   }
-
   for (let i = 0; i < projectCards.length; i += 1) {
     const card = projectCards[i];
     const tagsStr = card.getAttribute("data-tags") || "";
     const tags = tagsStr.split(",").map(trimString);
     let include = true;
-
     for (let j = 0; j < selected.length; j += 1) {
       if (tags.indexOf(selected[j]) === -1) {
         include = false;
       }
     }
-
     card.style.display = include ? "" : "none";
   }
 }
@@ -123,7 +109,6 @@ function handleClearClick() {
   clearProjectFilter();
 }
 
-// Video player helpers //
 function isSmallScreen() {
   return window.matchMedia("(max-width: 767px)").matches;
 }
@@ -132,7 +117,6 @@ function initializePlayer() {
   if (!playerElement || !videoControls) {
     return;
   }
-  // I am hiding the default browser controls when JS is available
   playerElement.controls = false;
   videoControls.classList.remove("hidded");
   videoControls.classList.remove("hide");
@@ -255,7 +239,6 @@ function handleVideoEnded() {
   }
 }
 
-// Project carousel helpers (Cartoon Bumper) //
 function handleProject1TransitionEndNext() {
   if (!project1Track) {
     return;
@@ -324,76 +307,6 @@ function handleProject1RightClick() {
   slideProject1Next();
 }
 
-// Project carousel helpers (Custom Earbuds) //
-function handleProject2TransitionEndNext() {
-  if (!project2Track) {
-    return;
-  }
-  project2Track.removeEventListener(
-    "transitionend",
-    handleProject2TransitionEndNext
-  );
-  project2Track.appendChild(project2Track.firstElementChild);
-  project2Track.style.transition = "none";
-  project2Track.style.transform = "translateX(0)";
-  project2Track.offsetHeight;
-  project2Track.style.transition = "transform 0.5s ease";
-  project2IsAnimating = false;
-}
-
-function handleProject2TransitionEndPrev() {
-  if (!project2Track) {
-    return;
-  }
-  project2Track.removeEventListener(
-    "transitionend",
-    handleProject2TransitionEndPrev
-  );
-  project2IsAnimating = false;
-}
-
-function slideProject2Next() {
-  if (!project2Track || project2IsAnimating) {
-    return;
-  }
-  project2IsAnimating = true;
-  project2Track.style.transform = "translateX(-100%)";
-  project2Track.addEventListener(
-    "transitionend",
-    handleProject2TransitionEndNext
-  );
-}
-
-function slideProject2Prev() {
-  if (!project2Track || project2IsAnimating) {
-    return;
-  }
-  const lastItem = project2Track.lastElementChild;
-  if (!lastItem) {
-    return;
-  }
-  project2IsAnimating = true;
-  project2Track.style.transition = "none";
-  project2Track.insertBefore(lastItem, project2Track.firstElementChild);
-  project2Track.style.transform = "translateX(-100%)";
-  project2Track.offsetHeight;
-  project2Track.style.transition = "transform 0.5s ease";
-  project2Track.style.transform = "translateX(0)";
-  project2Track.addEventListener(
-    "transitionend",
-    handleProject2TransitionEndPrev
-  );
-}
-
-function handleProject2LeftClick() {
-  slideProject2Prev();
-}
-
-function handleProject2RightClick() {
-  slideProject2Next();
-}
-
-// Project carousel helpers (Burple Re-brand) //
 function handleProject3TransitionEndNext() {
   if (!project3Track) {
     return;
@@ -462,7 +375,45 @@ function handleProject3RightClick() {
   slideProject3Next();
 }
 
-// Event listeners //
+function toggleProjectDetails(cardElement, triggerElement) {
+  if (!cardElement || !triggerElement) {
+    return;
+  }
+  const details = cardElement.querySelector(".project-details");
+  if (!details) {
+    return;
+  }
+  const isOpen = cardElement.classList.contains("is-open");
+  if (isOpen) {
+    cardElement.classList.remove("is-open");
+    triggerElement.textContent = "View";
+  } else {
+    cardElement.classList.add("is-open");
+    triggerElement.textContent = "Hide details";
+  }
+}
+
+function handleProjectViewClick(event) {
+  event.preventDefault();
+  const triggerElement = event.currentTarget;
+  const cardElement = triggerElement.closest(".project-card");
+  toggleProjectDetails(cardElement, triggerElement);
+}
+
+function toggleMobileNav() {
+  if (!headerElement) {
+    return;
+  }
+  headerElement.classList.toggle("is-nav-open");
+}
+
+function closeMobileNav() {
+  if (!headerElement) {
+    return;
+  }
+  headerElement.classList.remove("is-nav-open");
+}
+
 if (applyFilterBtn) {
   applyFilterBtn.addEventListener("click", handleApplyClick);
 }
@@ -473,28 +424,22 @@ if (clearFilterBtn) {
 
 if (playerElement && videoControls) {
   initializePlayer();
-
   if (playButton) {
     playButton.addEventListener("click", handlePlayClick);
   }
-
   if (pauseButton) {
     pauseButton.addEventListener("click", handlePauseClick);
   }
-
   if (stopButton) {
     stopButton.addEventListener("click", handleStopClick);
   }
-
   if (volumeSlider) {
     volumeSlider.addEventListener("input", handleVolumeInput);
     volumeSlider.addEventListener("change", handleVolumeInput);
   }
-
   if (fullScreenButton) {
     fullScreenButton.addEventListener("click", handleFullScreenClick);
   }
-
   videoControls.addEventListener("mouseenter", handleControlsMouseEnter);
   videoControls.addEventListener("mouseleave", handleControlsMouseLeave);
   playerElement.addEventListener("mouseenter", handleVideoMouseEnter);
@@ -508,16 +453,26 @@ if (project1Track && project1LeftArrow && project1RightArrow) {
   project1RightArrow.addEventListener("click", handleProject1RightClick);
 }
 
-if (project2Track && project2LeftArrow && project2RightArrow) {
-  project2LeftArrow.addEventListener("click", handleProject2LeftClick);
-  project2RightArrow.addEventListener("click", handleProject2RightClick);
-}
-
 if (project3Track && project3LeftArrow && project3RightArrow) {
   project3LeftArrow.addEventListener("click", handleProject3LeftClick);
   project3RightArrow.addEventListener("click", handleProject3RightClick);
 }
 
-// Init //
+if (projectViewButtons.length > 0) {
+  for (let i = 0; i < projectViewButtons.length; i += 1) {
+    projectViewButtons[i].addEventListener("click", handleProjectViewClick);
+  }
+}
+
+if (navToggle) {
+  navToggle.addEventListener("click", toggleMobileNav);
+}
+
+if (mobileNavLinks.length > 0) {
+  for (let i = 0; i < mobileNavLinks.length; i += 1) {
+    mobileNavLinks[i].addEventListener("click", closeMobileNav);
+  }
+}
+
 setCurrentYear();
 highlightActiveNav();
