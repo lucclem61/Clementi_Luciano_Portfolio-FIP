@@ -1,5 +1,14 @@
 @use "../abstracts";
 
+#contact-us {
+  position: relative;
+  overflow: hidden;
+}
+
+#contact-us::after {
+  display: none;
+}
+
 #contact-form input,
 #contact-form textarea {
   display: block;
@@ -40,5 +49,21 @@
 @media screen and (min-width: 768px) {
   #contact-form #submit {
     max-width: 200px;
+  }
+
+  #contact-us::after {
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    height: 260px;
+    background-image: url("../images/Logo-1.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.15;
+    pointer-events: none;
+    display: block;
   }
 }

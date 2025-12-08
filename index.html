@@ -35,7 +35,7 @@
         <nav id="main-nav" aria-label="Main navigation">
           <ul>
             <li><a href="index.html" data-nav="home">Home</a></li>
-            <li><a href="#projects" data-nav="work">Work</a></li>
+            <li><a href="#projects" data-nav="work">Projects</a></li>
             <li>
               <a href="#testimonials" data-nav="testimonials">Testimonials</a>
             </li>
@@ -49,20 +49,20 @@
       <section id="hero" class="grid-con">
         <div class="hero-surface col-span-full">
           <div class="hero-inner">
-            <div class="hero-copy">
-              <h2 class="hero-title">Websites made easy</h2>
-              <p class="hero-sub">
-                I design and build websites for multiple platforms, focusing on
-                clean code, strong visuals, and user experience.
-              </p>
-              <a class="btn-primary" href="contact.html">Let’s Work Together</a>
-            </div>
             <div class="hero-media">
               <img
                 class="hero-portrait"
-                src="images/placeholder_1.jpg"
+                src="images/headshot.jpg"
                 alt="Portrait placeholder"
               />
+            </div>
+            <div class="hero-copy">
+              <h2 class="hero-title">Luciano Clementi</h2>
+              <p class="hero-roles">
+                Front-End Development // Video Editing // 3D Modelling // Motion
+                Design
+              </p>
+              <a class="btn-primary" href="contact.html">Let’s Work Together</a>
             </div>
           </div>
         </div>
@@ -114,94 +114,43 @@
         <h2 class="col-span-full about-title">About Me</h2>
         <div class="col-span-full about-text">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-            odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
-            quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
-            mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
-            Vestibulum lacinia arcu eget nulla.
+            I'm Luciano Clementi, and I've always been drawn to the process of
+            creating something from nothing. What started as a personal interest
+            has grown into a committed pursuit. I realised how much I enjoyed
+            influencing emotion, rhythm, and story through video editing which
+            has led me into front and back end development and interactive
+            design.
           </p>
           <p>
-            Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-            per inceptos himenaeos. Curabitur sodales ligula in libero. Sed
-            dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean
-            quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis
-            tristique sem.
+            I'm currently studying Interactive Media Design at Fanshawe College,
+            working toward graduating in April 2026. During this chapter of my
+            career I have developed strong skills accross both visual and
+            technical practices, allowing me to create comfortably between
+            motion, design, and code. I enjoy tackling creative-direction
+            challenges and shaping projects that are purposeful, enaging, and
+            visually appealing.
           </p>
           <p>
-            Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus,
-            iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis
-            ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper
-            vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
-            velit.
+            My goal is to take on remote friendly work that requires motion and
+            front end development, collaborating with teams who value the
+            creative process and enjoy working together to build impactful
+            content.
           </p>
+
+          <div class="about-tools">
+            <img
+              src="images/logos.png"
+              alt="Design and development tools"
+              class="about-tool-logo"
+            />
+          </div>
         </div>
       </section>
 
       <section id="projects-filter" class="grid-con">
         <div class="col-span-full projects-header">
           <h2 class="projects-title">Projects</h2>
-          <p class="projects-sub">
-            Filter by category to quickly scan relevant work.
-          </p>
         </div>
-
-        <form
-          class="col-span-full projects-filters"
-          id="projects-filters"
-          aria-label="Filter projects"
-        >
-          <fieldset class="filters-group">
-            <legend class="hidden">Project Categories</legend>
-
-            <label class="chip"
-              ><input
-                type="checkbox"
-                value="front-end"
-                class="chip-input"
-              /><span class="chip-ui">Front-end</span></label
-            >
-            <label class="chip"
-              ><input
-                type="checkbox"
-                value="back-end"
-                class="chip-input"
-              /><span class="chip-ui">Back-end</span></label
-            >
-            <label class="chip"
-              ><input type="checkbox" value="design" class="chip-input" /><span
-                class="chip-ui"
-                >Design</span
-              ></label
-            >
-            <label class="chip"
-              ><input
-                type="checkbox"
-                value="animation"
-                class="chip-input"
-              /><span class="chip-ui">Animation</span></label
-            >
-            <label class="chip"
-              ><input
-                type="checkbox"
-                value="video-editing"
-                class="chip-input"
-              /><span class="chip-ui">Video Editing</span></label
-            >
-            <label class="chip chip-all"
-              ><input type="checkbox" value="all" class="chip-input" /><span
-                class="chip-ui"
-                >All</span
-              ></label
-            >
-
-            <button type="button" class="btn-filter" id="apply-filter">
-              Filter
-            </button>
-            <button type="button" class="btn-clear" id="clear-filter">
-              Clear
-            </button>
-          </fieldset>
-        </form>
       </section>
 
       <div class="grid-con" id="projects">
@@ -219,7 +168,7 @@
                     class="project-video-element"
                     controls
                     preload="metadata"
-                    poster="images/cartoon-bumper-1.jpg"
+                    poster="images/thumbnailbump.jpg"
                     aria-label="Cartoon Bumper video"
                   >
                     <source src="video/Banner_1.mp4" type="video/mp4" />
@@ -260,8 +209,6 @@
 
           <div class="project-meta-row">
             <div class="tag-list">
-              <span class="tag">Front-end</span>
-              <span class="tag">Back-end</span>
               <span class="tag">Design</span>
               <span class="tag">Animation</span>
               <span class="tag">Video Editing</span>
@@ -269,32 +216,34 @@
             <a href="#" class="btn-primary view-link">View</a>
           </div>
 
-          <p>What problem you solved, how you approached it, and the impact.</p>
+          <p>3D designed Cartoon bumper clip.</p>
 
           <div class="project-details">
             <div class="project-details-section">
               <h3 class="project-details-heading">Overview</h3>
               <p class="project-details-text">
-                Short animated bumper designed to introduce a fictional cartoon
-                channel. The goal was to capture a playful tone while keeping
-                timings tight and legible for broadcast.
+                A short, 3D animated bumper created to introduce an episode of a
+                cartoon show. I designed and animated the entire scene using
+                Cinema 4D. The goal was to make a playful and fun scene that
+                promotes the show.
               </p>
             </div>
             <div class="project-details-section">
               <h3 class="project-details-heading">Programs used</h3>
               <ul class="project-details-list">
+                <li>Cinema 4D / Redshift</li>
                 <li>Adobe After Effects</li>
-                <li>Adobe Illustrator</li>
                 <li>Adobe Premiere Pro</li>
               </ul>
             </div>
             <div class="project-details-section">
               <h3 class="project-details-heading">Problems faced and solved</h3>
               <p class="project-details-text">
-                The main challenge was keeping the animation energetic without
-                overwhelming the viewer. I solved this by simplifying shapes,
-                limiting the color palette, and refining easing curves so the
-                motion feels intentional instead of chaotic.
+                The main challenge was inconsistent render settings that slowed
+                down my production time. My first render exported with the wrong
+                resolution and colour palette, requiring me to render the entire
+                bumper a second time. To avoid this happening again, I set up
+                and saved render presets linked to specific styles and goals.
               </p>
             </div>
           </div>
@@ -382,33 +331,53 @@
             <a href="#" class="btn-primary view-link">View</a>
           </div>
 
-          <p>What problem you solved, how you approached it, and the impact.</p>
+          <p>Promotional website for a unique 3D earbud design.</p>
 
           <div class="project-details">
             <div class="project-details-section">
               <h3 class="project-details-heading">Overview</h3>
               <p class="project-details-text">
-                Interactive product concept for custom earbuds. The focus was on
-                presenting the model in a way that feels tactile and premium
-                while still loading quickly in the browser.
+                I designed a 3D model of a pair of earbuds and their charging
+                case using Cinema 4D and Redshift, then built a promotional
+                webpage to showcase the product. The page highlights key
+                features through an interactive model viewer, an X-ray
+                comparison slider, and a series of promotional images.
               </p>
             </div>
+
             <div class="project-details-section">
               <h3 class="project-details-heading">Programs used</h3>
               <ul class="project-details-list">
-                <li>Blender</li>
-                <li>Substance Painter</li>
-                <li>Figma</li>
-                <li>Visual Studio Code</li>
+                <li>Cinema 4D / Redshift</li>
+                <li>Adobe Photoshop</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Model Viewer</li>
               </ul>
             </div>
+
             <div class="project-details-section">
               <h3 class="project-details-heading">Problems faced and solved</h3>
               <p class="project-details-text">
-                The model was initially too heavy for the web. I reduced
-                polygons, optimized textures, and adjusted lighting to keep the
-                file size manageable while still showing enough detail for the
-                hotspots to feel meaningful.
+                The main issue I faced was that the 3D model was not centered in
+                the Cinema 4D workspace, which made it difficult to accurately
+                place the informational hotspots in the browser. After
+                identifying the problem, I repositioned the model correctly,
+                re-exported the .glb file, and the hotspots aligned instantly.
+                This fix ensured that each feature callout appeared exactly
+                where intended on the final interactive model.
+              </p>
+            </div>
+
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Source</h3>
+              <p class="project-details-text">
+                <a
+                  href="https://github.com/lucclem61/Clementi_Luciano_earbuds_sub1.git"
+                >
+                  Click here
+                </a>
               </p>
             </div>
           </div>
@@ -478,32 +447,53 @@
             <a href="#" class="btn-primary view-link">View</a>
           </div>
 
-          <p>What problem you solved, how you approached it, and the impact.</p>
+          <p>Promotional website for a soda rebrand.</p>
 
           <div class="project-details">
             <div class="project-details-section">
               <h3 class="project-details-heading">Overview</h3>
               <p class="project-details-text">
-                Brand refresh for a playful beverage company. The project
-                covered logo animation, packaging visuals, and a simple landing
-                page layout.
+                I created a promotional rebrand for Burple, designing a new 3D
+                can concept in Cinema 4D as well as a set of visuals used for
+                the video scenes. The project includes a promotional website
+                that presents a short animated promo, marketing images, and the
+                different products available.
               </p>
             </div>
+
             <div class="project-details-section">
               <h3 class="project-details-heading">Programs used</h3>
               <ul class="project-details-list">
-                <li>Adobe Illustrator</li>
+                <li>Cinema 4D / Redshift</li>
+                <li>Adobe After Effects</li>
                 <li>Adobe Photoshop</li>
-                <li>Figma</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
               </ul>
             </div>
+
             <div class="project-details-section">
               <h3 class="project-details-heading">Problems faced and solved</h3>
               <p class="project-details-text">
-                The brand had to feel more modern without losing its original
-                personality. I tested different type pairings, colors, and
-                layouts until the updated look felt fresh but still familiar to
-                existing customers.
+                The biggest challenge I faced was achieving a realistic look in
+                the 3D scenes. My early renders felt flat and artificial, so I
+                researched how to improve my lighting setups, address surface
+                imperfections, and refine texturing. By adjusting the light rig,
+                adding subtle roughness variations, and tuning material
+                properties, the final visuals became far more believable and
+                engaging.
+              </p>
+            </div>
+
+            <div class="project-details-section">
+              <h3 class="project-details-heading">Source</h3>
+              <p class="project-details-text">
+                <a
+                  href="https://github.com/lucclem61/Clementi_Luciano_FIP2.git"
+                >
+                  Click here
+                </a>
               </p>
             </div>
           </div>
@@ -522,10 +512,6 @@
               />
             </div>
             <div class="t-copy">
-              <p class="t-text">
-                “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Integer nec odio. Praesent libero.”
-              </p>
               <p class="t-name">Tim Hendricks</p>
               <p class="t-role">Product Manager</p>
             </div>
@@ -541,10 +527,6 @@
               />
             </div>
             <div class="t-copy">
-              <p class="t-text">
-                “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Integer nec odio. Praesent libero.”
-              </p>
               <p class="t-name">Jane Doe</p>
               <p class="t-role">Product Manager</p>
             </div>
@@ -560,10 +542,6 @@
               />
             </div>
             <div class="t-copy">
-              <p class="t-text">
-                “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Integer nec odio. Praesent libero.”
-              </p>
               <p class="t-name">John Doe</p>
               <p class="t-role">Product Manager</p>
             </div>
@@ -583,7 +561,7 @@
           <nav class="footer-nav" aria-label="Footer">
             <ul>
               <li><a href="index.html" data-nav="home">Home</a></li>
-              <li><a href="#projects" data-nav="work">Work</a></li>
+              <li><a href="#projects" data-nav="work">Projects</a></li>
               <li>
                 <a href="#testimonials" data-nav="testimonials">Testimonials</a>
               </li>

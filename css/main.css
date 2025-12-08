@@ -664,8 +664,31 @@ model-viewer {
 #hero {
   margin-top: 16px;
   margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
 }
 
+#hero::after {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  #hero::after {
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    height: 260px;
+    background-image: url("../images/Logo-1.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.15;
+    pointer-events: none;
+    display: block;
+  }
+}
 .hero-surface {
   background-color: #f7f5ed;
   color: #333;
@@ -679,6 +702,13 @@ model-viewer {
   align-items: center;
   gap: 24px;
   min-height: 320px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-copy {
+  text-align: left;
 }
 
 .hero-title {
@@ -687,6 +717,12 @@ model-viewer {
   line-height: 1.1;
   margin: 0 0 12px 0;
   letter-spacing: -1px;
+}
+
+.hero-roles {
+  font-size: clamp(14px, 2.2vw, 18px);
+  line-height: 1.4;
+  margin: 0 0 20px 0;
 }
 
 .hero-sub {
@@ -729,12 +765,12 @@ model-viewer {
 
 @media screen and (min-width: 768px) {
   .hero-inner {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr 1fr;
     padding: 48px 40px;
     min-height: 420px;
   }
   .hero-media {
-    justify-content: flex-end;
+    justify-content: center;
   }
   .hero-portrait {
     width: 280px;
@@ -797,6 +833,31 @@ model-viewer {
   position: relative;
 }
 
+.about-tools {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.about-tool-logo {
+  width: 600px;
+  height: auto;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 480px) {
+  .about-tool-logo {
+    width: 50px;
+    height: auto;
+    opacity: 0.6;
+  }
+}
 @media screen and (min-width: 1200px) {
   #about-us {
     min-height: 520px;
@@ -812,7 +873,7 @@ model-viewer {
 }
 
 #projects-filter .projects-title {
-  font-size: 32px;
+  font-size: 40px;
   letter-spacing: -1px;
   margin: 0;
   color: #023f26;
@@ -914,6 +975,10 @@ model-viewer {
   position: relative;
 }
 
+.project-card h2 {
+  font-size: 30px;
+}
+
 #projects .project-card {
   grid-column: 1/-1;
 }
@@ -967,10 +1032,6 @@ model-viewer {
   transition: all 0.5s ease-in-out;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-2px);
-}
-
 .testimonial-card .t-inner {
   display: grid;
   grid-template-columns: 1fr;
@@ -990,7 +1051,7 @@ model-viewer {
      object-fit: cover;
   border-radius: 999px;
   border: 6px solid rgba(89, 158, 174, 0.35);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 28px rgba(0.2, 0.2, 0.2, 0.2);
   background-color: #fff;
 }
 
@@ -1029,6 +1090,15 @@ model-viewer {
     height: 130px;
   }
 }
+#contact-us {
+  position: relative;
+  overflow: hidden;
+}
+
+#contact-us::after {
+  display: none;
+}
+
 #contact-form input,
 #contact-form textarea {
   display: block;
@@ -1068,5 +1138,20 @@ model-viewer {
 @media screen and (min-width: 768px) {
   #contact-form #submit {
     max-width: 200px;
+  }
+  #contact-us::after {
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    height: 260px;
+    background-image: url("../images/Logo-1.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.15;
+    pointer-events: none;
+    display: block;
   }
 }/*# sourceMappingURL=main.css.map */

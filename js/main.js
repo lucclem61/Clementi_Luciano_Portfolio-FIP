@@ -1,10 +1,5 @@
 const yearTargets = document.querySelectorAll(".js-year, #year");
 const navLinks = document.querySelectorAll("#main-nav a, .footer-nav a");
-const filterForm = document.querySelector("#projects-filters");
-const chipInputs = filterForm ? filterForm.querySelectorAll(".chip-input") : [];
-const applyFilterBtn = document.querySelector("#apply-filter");
-const clearFilterBtn = document.querySelector("#clear-filter");
-const projectCards = document.querySelectorAll(".project-card");
 const projectViewButtons = document.querySelectorAll(
   ".project-card .view-link"
 );
@@ -50,63 +45,6 @@ function highlightActiveNav() {
       link.classList.add("active");
     }
   }
-}
-
-function trimString(value) {
-  return value.trim();
-}
-
-function getSelectedTags() {
-  const tags = [];
-  for (let i = 0; i < chipInputs.length; i += 1) {
-    const input = chipInputs[i];
-    if (input.checked) {
-      tags.push(input.value);
-    }
-  }
-  return tags;
-}
-
-function showAllProjects() {
-  for (let i = 0; i < projectCards.length; i += 1) {
-    projectCards[i].style.display = "";
-  }
-}
-
-function applyProjectFilter() {
-  const selected = getSelectedTags();
-  const hasAll = selected.indexOf("all") !== -1;
-  if (hasAll || selected.length === 0) {
-    showAllProjects();
-    return;
-  }
-  for (let i = 0; i < projectCards.length; i += 1) {
-    const card = projectCards[i];
-    const tagsStr = card.getAttribute("data-tags") || "";
-    const tags = tagsStr.split(",").map(trimString);
-    let include = true;
-    for (let j = 0; j < selected.length; j += 1) {
-      if (tags.indexOf(selected[j]) === -1) {
-        include = false;
-      }
-    }
-    card.style.display = include ? "" : "none";
-  }
-}
-
-function clearProjectFilter() {
-  for (let i = 0; i < chipInputs.length; i += 1) {
-    chipInputs[i].checked = false;
-  }
-  showAllProjects();
-}
-
-function handleApplyClick() {
-  applyProjectFilter();
-}
-
-function handleClearClick() {
-  clearProjectFilter();
 }
 
 function isSmallScreen() {
@@ -412,14 +350,6 @@ function closeMobileNav() {
     return;
   }
   headerElement.classList.remove("is-nav-open");
-}
-
-if (applyFilterBtn) {
-  applyFilterBtn.addEventListener("click", handleApplyClick);
-}
-
-if (clearFilterBtn) {
-  clearFilterBtn.addEventListener("click", handleClearClick);
 }
 
 if (playerElement && videoControls) {
