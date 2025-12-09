@@ -3,21 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <title>Contact — Your Name</title>
+    <title>Contact — Luciano Clementi</title>
     <link href="css/grid.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
   </head>
   <body>
-    <p class="hidden">Contact — Your Name</p>
+    <p class="hidden">Contact — Luciano Clementi</p>
 
     <header id="main-header" class="grid-con">
       <div class="header-bar col-span-full">
         <div class="header-brand">
-          <img
-            class="brand-logo"
-            src="images/Logo-1.svg"
-            alt="Luciano Clementi logo"
-          />
+          <img class="brand-logo" src="images/Logo-1.svg" alt="Luciano Clementi logo" />
           <span class="brand-name">Luciano Clementi</span>
         </div>
 
@@ -31,16 +27,8 @@
           <ul>
             <li><a href="index.html" data-nav="home">Home</a></li>
             <li><a href="index.html#projects" data-nav="work">Projects</a></li>
-            <li>
-              <a href="index.html#testimonials" data-nav="testimonials"
-                >Testimonials</a
-              >
-            </li>
-            <li>
-              <a href="contact.html" data-nav="contact" class="active"
-                >Contact</a
-              >
-            </li>
+            <li><a href="index.html#testimonials" data-nav="testimonials">Testimonials</a></li>
+            <li><a href="contact.php" data-nav="contact" class="active">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -48,35 +36,27 @@
 
     <main>
       <div class="grid-con" id="contact-us">
-        <form id="contact-form" class="col-span-full m-col-span-8" novalidate>
+
+        <?php
+        if(isset($_GET['msg'])) {
+          echo '<p class="col-span-full m-col-span-8">' . $_GET['msg'] . '</p>';
+        }
+        ?>
+
+        <form id="contact-form" class="col-span-full m-col-span-8" method="post" action="includes/send.php" novalidate>
           <p>Enter your info, and I’ll get back to you as soon as possible.</p>
 
           <label for="fname">*First Name</label>
-          <input
-            type="text"
-            id="fname"
-            name="fname"
-            autocomplete="given-name"
-          />
+          <input type="text" id="fname" name="fname" />
 
           <label for="lname">*Last Name</label>
-          <input
-            type="text"
-            id="lname"
-            name="lname"
-            autocomplete="family-name"
-          />
+          <input type="text" id="lname" name="lname" />
 
           <label for="email">*Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" />
+          <input type="email" id="email" name="email" />
 
           <label for="city">*City</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            autocomplete="address-level2"
-          />
+          <input type="text" id="city" name="city" />
 
           <label for="comments">*Comments</label>
           <textarea id="comments" name="comments"></textarea>
@@ -90,33 +70,24 @@
       <div class="footer-surface col-span-full">
         <div class="footer-top">
           <div class="footer-left">
-            <a class="footer-email" href="mailto:luciano.s.clementi@gmail.com"
-              >luciano.s.clementi@gmail.com</a
-            >
+            <a class="footer-email" href="mailto:luciano.s.clementi@gmail.com">luciano.s.clementi@gmail.com</a>
           </div>
 
           <nav class="footer-nav" aria-label="Footer">
             <ul>
               <li><a href="index.html" data-nav="home">Home</a></li>
-              <li>
-                <a href="index.html#projects" data-nav="work">Projects</a>
-              </li>
-              <li>
-                <a href="index.html#testimonials" data-nav="testimonials"
-                  >Testimonials</a
-                >
-              </li>
-              <li><a href="contact.html" data-nav="contact">Contact</a></li>
+              <li><a href="index.html#projects" data-nav="work">Projects</a></li>
+              <li><a href="index.html#testimonials" data-nav="testimonials">Testimonials</a></li>
+              <li><a href="contact.php" data-nav="contact">Contact</a></li>
             </ul>
           </nav>
         </div>
 
         <div class="footer-badges"></div>
-
         <hr class="footer-divider" />
 
         <div class="footer-bottom">
-          <p>&copy; <span id="year"></span> — Your Name</p>
+          <p>&copy; <span id="year"></span> — Luciano Clementi</p>
         </div>
       </div>
     </footer>
