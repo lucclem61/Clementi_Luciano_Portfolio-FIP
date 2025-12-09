@@ -45,7 +45,6 @@
   margin-left: auto;
 }
 
-/*********** Range slider styles scoped to player ***********/
 #player-container input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -58,14 +57,12 @@
   outline: none;
 }
 
-/* Chrome, Safari, Opera, Edge Chromium track */
 #player-container input[type="range"]::-webkit-slider-runnable-track {
   background-color: #5ed22d;
   border-radius: 0.5rem;
   height: 0.5rem;
 }
 
-/* Chrome, Safari, Opera, Edge Chromium thumb */
 #player-container input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -81,14 +78,12 @@
   outline-offset: 0.125rem;
 }
 
-/* Firefox track */
 #player-container input[type="range"]::-moz-range-track {
   background-color: #5ed22d;
   border-radius: 0.5rem;
   height: 0.5rem;
 }
 
-/* Firefox thumb */
 #player-container input[type="range"]::-moz-range-thumb {
   background-color: #457713;
   border: none;
@@ -102,7 +97,6 @@
   outline-offset: 0.125rem;
 }
 
-/* Project video inside cards – I am giving it a similar look to the main player */
 .project-video {
   margin-top: 16px;
 }

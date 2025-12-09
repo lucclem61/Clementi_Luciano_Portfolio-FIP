@@ -388,12 +388,13 @@
 
 .testimonial-card .t-avatar {
   width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 999px;
-  border: 6px solid rgba(89, 158, 174, 0.35);
-  box-shadow: 0 12px 28px rgba(0.2, 0.2, 0.2, 0.2);
-  background-color: #fff;
+  height: auto;
+  opacity: 0.7;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  object-fit: contain;
 }
 
 .testimonial-card .t-copy {
@@ -401,8 +402,7 @@
 }
 
 .testimonial-card .t-text {
-  line-height: 1.6;
-  margin: 0 0 10px 0;
+  display: none;
 }
 
 .testimonial-card .t-name {
@@ -411,9 +411,7 @@
 }
 
 .testimonial-card .t-role {
-  margin: 2px 0 0 0;
-  color: rgba(0, 0, 0, 0.7);
-  font-size: 14px;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -430,6 +428,5 @@
 @media screen and (min-width: 1200px) {
   .testimonial-card .t-avatar {
     width: 130px;
-    height: 130px;
   }
 }

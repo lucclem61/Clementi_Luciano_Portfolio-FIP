@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   background-color: #f7f5ed;
@@ -426,7 +425,6 @@ footer.site-footer .footer-bottom p {
   margin-left: auto;
 }
 
-/*********** Range slider styles scoped to player ***********/
 #player-container input[type=range] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -440,14 +438,12 @@ footer.site-footer .footer-bottom p {
   outline: none;
 }
 
-/* Chrome, Safari, Opera, Edge Chromium track */
 #player-container input[type=range]::-webkit-slider-runnable-track {
   background-color: #5ed22d;
   border-radius: 0.5rem;
   height: 0.5rem;
 }
 
-/* Chrome, Safari, Opera, Edge Chromium thumb */
 #player-container input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -463,14 +459,12 @@ footer.site-footer .footer-bottom p {
   outline-offset: 0.125rem;
 }
 
-/* Firefox track */
 #player-container input[type=range]::-moz-range-track {
   background-color: #5ed22d;
   border-radius: 0.5rem;
   height: 0.5rem;
 }
 
-/* Firefox thumb */
 #player-container input[type=range]::-moz-range-thumb {
   background-color: #457713;
   border: none;
@@ -484,7 +478,6 @@ footer.site-footer .footer-bottom p {
   outline-offset: 0.125rem;
 }
 
-/* Project video inside cards – I am giving it a similar look to the main player */
 .project-video {
   margin-top: 16px;
 }
@@ -523,7 +516,6 @@ footer.site-footer .footer-bottom p {
   justify-content: center;
 }
 
-/* I am letting the image grow to fill the viewport height without cropping */
 .project-carousel .project-carousel-item img {
   display: block;
   max-width: 100%;
@@ -534,13 +526,11 @@ footer.site-footer .footer-bottom p {
      object-fit: contain;
 }
 
-/* Tablet: height increased by about one third */
 @media screen and (min-width: 768px) {
   .project-carousel-viewport {
     height: 430px;
   }
 }
-/* Desktop: height increased by about one third */
 @media screen and (min-width: 1024px) {
   .project-carousel-viewport {
     height: 510px;
@@ -1046,13 +1036,14 @@ model-viewer {
 
 .testimonial-card .t-avatar {
   width: 120px;
-  height: 120px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 999px;
-  border: 6px solid rgba(89, 158, 174, 0.35);
-  box-shadow: 0 12px 28px rgba(0.2, 0.2, 0.2, 0.2);
-  background-color: #fff;
+  height: auto;
+  opacity: 0.7;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .testimonial-card .t-copy {
@@ -1060,8 +1051,7 @@ model-viewer {
 }
 
 .testimonial-card .t-text {
-  line-height: 1.6;
-  margin: 0 0 10px 0;
+  display: none;
 }
 
 .testimonial-card .t-name {
@@ -1070,9 +1060,7 @@ model-viewer {
 }
 
 .testimonial-card .t-role {
-  margin: 2px 0 0 0;
-  color: rgba(0, 0, 0, 0.7);
-  font-size: 14px;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -1087,7 +1075,6 @@ model-viewer {
 @media screen and (min-width: 1200px) {
   .testimonial-card .t-avatar {
     width: 130px;
-    height: 130px;
   }
 }
 #contact-us {

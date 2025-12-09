@@ -25,7 +25,6 @@
   justify-content: center;
 }
 
-/* I am letting the image grow to fill the viewport height without cropping */
 .project-carousel .project-carousel-item img {
   display: block;
   max-width: 100%;
@@ -35,14 +34,12 @@
   object-fit: contain;
 }
 
-/* Tablet: height increased by about one third */
 @media screen and (min-width: 768px) {
   .project-carousel-viewport {
     height: 430px;
   }
 }
 
-/* Desktop: height increased by about one third */
 @media screen and (min-width: 1024px) {
   .project-carousel-viewport {
     height: 510px;
