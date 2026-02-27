@@ -139,7 +139,6 @@
   margin-top: 32px;
   margin-bottom: 32px;
   padding: 48px 40px;
-  text-align: center;
   min-height: 320px;
   position: relative;
   overflow: hidden;
@@ -162,9 +161,9 @@
 
 .about-title {
   color: abstracts.$heading-color;
-  text-align: center;
-  font-size: clamp(28px, 5vw, 42px);
-  margin: 0 0 24px 0;
+  text-align: left;
+  font-size: clamp(35px, 5vw, 42px);
+  margin: 0 0 24px 120px;
   position: relative;
 }
 
@@ -173,6 +172,7 @@
   margin: 0 auto;
   line-height: 1.8;
   font-size: 18px;
+  font-weight: 500;
   color: abstracts.$surface-beige;
   position: relative;
 }
@@ -191,14 +191,14 @@
   height: auto;
   display: block;
   object-fit: contain;
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 @media screen and (max-width: 480px) {
   .about-tool-logo {
     width: 50px;
     height: auto;
-    opacity: 0.6;
+    opacity: 0.9;
   }
 }
 

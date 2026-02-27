@@ -51,8 +51,13 @@
 }
 
 .project-details-heading {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 0 0 8px;
+}
+
+h4.project-details-heading {
+  font-size: 1rem;
+  margin-top: 12px;
 }
 
 .project-details-text {
@@ -74,5 +79,13 @@
   .card {
     margin: 0;
     padding: 20px;
+  }
+
+  .project-details-heading {
+    font-size: 1.5rem;
+    margin: 0 0 8px;
+  }
+  h4.project-details-heading {
+    font-size: 1.15rem;
   }
 }
