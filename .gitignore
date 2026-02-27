@@ -3,3 +3,6 @@ assets/
 .DS_Store
 
 desktop.ini
+
+/vendor/
+.env

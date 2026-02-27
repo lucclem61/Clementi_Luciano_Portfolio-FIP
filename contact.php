@@ -37,15 +37,12 @@
     <main>
       <div class="grid-con" id="contact-us">
 
-        <?php
-        if(isset($_GET['msg'])) {
-          echo '<p class="col-span-full m-col-span-8">' . $_GET['msg'] . '</p>';
-        }
-        ?>
+  
 
-        <form id="contact-form" class="col-span-full m-col-span-8" method="post" action="includes/send.php" novalidate>
+         <form id="contact-form" class="col-span-full m-col-span-8" method="post" action="includes/scripts/send.php" novalidate>
           <p>Enter your info, and I’ll get back to you as soon as possible.</p>
 
+             <p class="form-message" aria-live="polite"></p>
           <label for="fname">*First Name</label>
           <input type="text" id="fname" name="fname" />
 
@@ -61,7 +58,15 @@
           <label for="comments">*Comments</label>
           <textarea id="comments" name="comments"></textarea>
 
-          <input id="submit" type="submit" value="Contact Me" />
+          <div class="hidden-field" aria-hidden="true">
+  <label for="company">Company</label>
+  <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+</div>
+
+<label for="botcheck">What is four plus four?</label>
+<input type="text" id="botcheck" name="botcheck" />
+
+<input id="submit" type="submit" value="Contact Me" />
         </form>
       </div>
     </main>
@@ -95,6 +100,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
