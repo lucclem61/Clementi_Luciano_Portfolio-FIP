@@ -3,7 +3,7 @@ gsap.registerPlugin(ScrollTrigger);
 const yearTargets = document.querySelectorAll(".js-year, #year");
 const navLinks = document.querySelectorAll("#main-nav a, .footer-nav a");
 const projectViewButtons = document.querySelectorAll(
-  ".project-card .view-link"
+  ".project-card .view-link",
 );
 
 const playerContainer = document.querySelector("#player-container");
@@ -17,18 +17,20 @@ const pauseButton = document.querySelector("#pause-button");
 const stopButton = document.querySelector("#stop-button");
 const volumeSlider = document.querySelector("#change-vol");
 const fullScreenButton = document.querySelector("#full-screen");
+const contactForm = document.querySelector("#contact-form");
+const feedbackElement = document.querySelector(".form-message");
 
 const project1Track = document.querySelector(".js-project1-carousel-track");
 const project1LeftArrow = document.querySelector(".js-project1-carousel-left");
 const project1RightArrow = document.querySelector(
-  ".js-project1-carousel-right"
+  ".js-project1-carousel-right",
 );
 let project1IsAnimating = false;
 
 const project3Track = document.querySelector(".js-project3-carousel-track");
 const project3LeftArrow = document.querySelector(".js-project3-carousel-left");
 const project3RightArrow = document.querySelector(
-  ".js-project3-carousel-right"
+  ".js-project3-carousel-right",
 );
 let project3IsAnimating = false;
 
@@ -106,7 +108,7 @@ function showControls() {
 function handleProject1TransitionEndNext() {
   project1Track.removeEventListener(
     "transitionend",
-    handleProject1TransitionEndNext
+    handleProject1TransitionEndNext,
   );
   project1Track.appendChild(project1Track.firstElementChild);
   project1Track.style.transition = "none";
@@ -119,7 +121,7 @@ function handleProject1TransitionEndNext() {
 function handleProject1TransitionEndPrev() {
   project1Track.removeEventListener(
     "transitionend",
-    handleProject1TransitionEndPrev
+    handleProject1TransitionEndPrev,
   );
   project1IsAnimating = false;
 }
@@ -130,7 +132,7 @@ function slideProject1Next() {
   project1Track.style.transform = "translateX(-100%)";
   project1Track.addEventListener(
     "transitionend",
-    handleProject1TransitionEndNext
+    handleProject1TransitionEndNext,
   );
 }
 
@@ -147,7 +149,7 @@ function slideProject1Prev() {
   project1Track.style.transform = "translateX(0)";
   project1Track.addEventListener(
     "transitionend",
-    handleProject1TransitionEndPrev
+    handleProject1TransitionEndPrev,
   );
 }
 
@@ -157,14 +159,14 @@ function slideProject3Next() {
   project3Track.style.transform = "translateX(-100%)";
   project3Track.addEventListener(
     "transitionend",
-    handleProject3TransitionEndNext
+    handleProject3TransitionEndNext,
   );
 }
 
 function handleProject3TransitionEndNext() {
   project3Track.removeEventListener(
     "transitionend",
-    handleProject3TransitionEndNext
+    handleProject3TransitionEndNext,
   );
   project3Track.appendChild(project3Track.firstElementChild);
   project3Track.style.transition = "none";
@@ -187,14 +189,14 @@ function slideProject3Prev() {
   project3Track.style.transform = "translateX(0)";
   project3Track.addEventListener(
     "transitionend",
-    handleProject3TransitionEndPrev
+    handleProject3TransitionEndPrev,
   );
 }
 
 function handleProject3TransitionEndPrev() {
   project3Track.removeEventListener(
     "transitionend",
-    handleProject3TransitionEndPrev
+    handleProject3TransitionEndPrev,
   );
   project3IsAnimating = false;
 }
@@ -215,7 +217,7 @@ function handleProjectViewClick(e) {
   e.preventDefault();
   toggleProjectDetails(
     e.currentTarget.closest(".project-card"),
-    e.currentTarget
+    e.currentTarget,
   );
 }
 
@@ -225,6 +227,53 @@ function toggleMobileNav() {
 
 function closeMobileNav() {
   headerElement.classList.remove("is-nav-open");
+}
+
+function handleContactFormSubmit(event) {
+  event.preventDefault();
+
+  if (!contactForm || !feedbackElement) return;
+
+  const formData = new URLSearchParams({
+    fname: contactForm.elements.fname.value,
+    lname: contactForm.elements.lname.value,
+    email: contactForm.elements.email.value,
+    city: contactForm.elements.city.value,
+    comments: contactForm.elements.comments.value,
+  });
+
+  fetch("includes/scripts/send.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: formData,
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (responseData) {
+      feedbackElement.innerHTML = "";
+
+      if (responseData.errors) {
+        responseData.errors.forEach(function (error) {
+          const errorElement = document.createElement("p");
+          errorElement.textContent = error;
+          feedbackElement.appendChild(errorElement);
+        });
+      } else if (responseData.message) {
+        const messageElement = document.createElement("p");
+        messageElement.textContent = responseData.message;
+        feedbackElement.appendChild(messageElement);
+        contactForm.reset();
+      }
+    })
+    .catch(function () {
+      feedbackElement.innerHTML = "";
+      const errorElement = document.createElement("p");
+      errorElement.textContent = "Something went wrong. Please try again.";
+      feedbackElement.appendChild(errorElement);
+    });
 }
 
 if (playerElement && videoControls) {
@@ -264,6 +313,10 @@ if (navToggle) navToggle.addEventListener("click", toggleMobileNav);
 
 for (let i = 0; i < mobileNavLinks.length; i += 1) {
   mobileNavLinks[i].addEventListener("click", closeMobileNav);
+}
+
+if (contactForm) {
+  contactForm.addEventListener("submit", handleContactFormSubmit);
 }
 
 setCurrentYear();
