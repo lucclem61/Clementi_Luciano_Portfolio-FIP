@@ -6,7 +6,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, "Trebuchet MS", sans-serif;
   color: #023f26;
 }
@@ -243,8 +244,13 @@ p {
 }
 
 .project-details-heading {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 0 0 8px;
+}
+
+h4.project-details-heading {
+  font-size: 1rem;
+  margin-top: 12px;
 }
 
 .project-details-text {
@@ -266,6 +272,13 @@ p {
   .card {
     margin: 0;
     padding: 20px;
+  }
+  .project-details-heading {
+    font-size: 1.5rem;
+    margin: 0 0 8px;
+  }
+  h4.project-details-heading {
+    font-size: 1.15rem;
   }
 }
 footer.site-footer {
@@ -785,7 +798,6 @@ model-viewer {
   margin-top: 32px;
   margin-bottom: 32px;
   padding: 48px 40px;
-  text-align: center;
   min-height: 320px;
   position: relative;
   overflow: hidden;
@@ -808,9 +820,9 @@ model-viewer {
 
 .about-title {
   color: #023f26;
-  text-align: center;
-  font-size: clamp(28px, 5vw, 42px);
-  margin: 0 0 24px 0;
+  text-align: left;
+  font-size: clamp(35px, 5vw, 42px);
+  margin: 0 0 24px 120px;
   position: relative;
 }
 
@@ -819,6 +831,7 @@ model-viewer {
   margin: 0 auto;
   line-height: 1.8;
   font-size: 18px;
+  font-weight: 500;
   color: #f7f5ed;
   position: relative;
 }
@@ -838,14 +851,14 @@ model-viewer {
   display: block;
   -o-object-fit: contain;
      object-fit: contain;
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 @media screen and (max-width: 480px) {
   .about-tool-logo {
     width: 50px;
     height: auto;
-    opacity: 0.6;
+    opacity: 0.9;
   }
 }
 @media screen and (min-width: 1200px) {
