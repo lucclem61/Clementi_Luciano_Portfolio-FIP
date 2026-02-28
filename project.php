@@ -7,7 +7,7 @@
   <link href="css/grid.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
 </head>
-<body>
+<body data-page="project">
 
 <header class="grid-con">
   <div class="col-span-full">

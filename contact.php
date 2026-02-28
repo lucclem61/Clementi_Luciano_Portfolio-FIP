@@ -7,7 +7,7 @@
     <link href="css/grid.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
   </head>
-  <body>
+  <body data-page="contact">
     <p class="hidden">Contact — Luciano Clementi</p>
 
     <header id="main-header" class="grid-con">
