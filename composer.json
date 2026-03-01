@@ -1,17 +1,17 @@
 {
-    "name": "angefangeat/clementi_luciano_portfolio-fip",
-    "autoload": {
-        "psr-4": {
-            "Angefangeat\\ClementiLucianoPortfolioFip\\": "includes/classes/"
-        }
-    },
-    "authors": [
-        {
-            "name": "lucclem61",
-            "email": "l_clementi@fanshaweonline.ca"
-        }
-    ],
-    "require": {
-        "vlucas/phpdotenv": "^5.6"
+  "name": "angefangeat/clementi_luciano_portfolio-fip",
+  "autoload": {
+    "psr-4": {
+      "Portfolio\\": "includes/classes/"
     }
+  },
+  "authors": [
+    {
+      "name": "lucclem61",
+      "email": "l_clementi@fanshaweonline.ca"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.6"
+  }
 }

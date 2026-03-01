@@ -1,6 +1,6 @@
 <?php
 
-namespace Angefangeat\ClementiLucianoPortfolioFip;
+namespace Portfolio;
 
 use PDO;
 use PDOException;

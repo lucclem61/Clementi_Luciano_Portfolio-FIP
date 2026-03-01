@@ -1,6 +1,6 @@
 <?php
 
-use Angefangeat\ClementiLucianoPortfolioFip\Database;
+use Portfolio\Database;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
