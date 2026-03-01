@@ -1,8 +1,15 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+session_start();
 
-use Angefangeat\ClementiLucianoPortfolioFip\Database;
+if (!isset($_SESSION['logged_in_user'])) {
+    header('Location: /login.php');
+    exit;
+}
+
+require_once __DIR__ . '/includes/classes/Database.php';
+
+use Portfolio\Database;
 
 $database = new Database();
 
@@ -36,7 +43,15 @@ if (!$singleProjectResult) {
 <body data-page="project">
 
     <h1><?php echo htmlspecialchars($singleProjectResult['title']); ?></h1>
-    <p><?php echo htmlspecialchars($singleProjectResult['description']); ?></p>
+
+    <p>
+        <?php echo htmlspecialchars($singleProjectResult['short_description']); ?>
+    </p>
+
+    <div>
+        <?php echo nl2br(htmlspecialchars($singleProjectResult['description'])); ?>
+    </div>
 
 </body>
 </html>
+

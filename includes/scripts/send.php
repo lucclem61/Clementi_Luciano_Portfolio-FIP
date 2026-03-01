@@ -1,8 +1,9 @@
 <?php
 
-use Angefangeat\ClementiLucianoPortfolioFip\Database;
-
 require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../classes/Database.php';
+
+use Portfolio\Database;
 
 header('Content-Type: application/json; charset=utf-8');
 
