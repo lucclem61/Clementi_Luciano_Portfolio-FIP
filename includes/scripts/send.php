@@ -1,77 +1,85 @@
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+use Angefangeat\ClementiLucianoPortfolioFip\Database;
 
-use Portfolio\Database;
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
-$fname = $_POST['fname'] ?? null;
-$lname = $_POST['lname'] ?? null;
-$email = $_POST['email'] ?? null;
-$city = $_POST['city'] ?? null;
-$comments = $_POST['comments'] ?? null;
-$company = $_POST['company'] ?? null;
-$botcheck = $_POST['botcheck'] ?? null;
-
 $errors = [];
 
-if (!$fname) $errors[] = "First name is required.";
-if (!$lname) $errors[] = "Last name is required.";
-if (!$email) $errors[] = "Email is required.";
-if (!$city) $errors[] = "City is required.";
-if (!$comments) $errors[] = "Comments are required.";
+$firstName = trim($_POST['fname'] ?? '');
+$lastName  = trim($_POST['lname'] ?? '');
+$email     = trim($_POST['email'] ?? '');
+$city      = trim($_POST['city'] ?? '');
+$message   = trim($_POST['comments'] ?? '');
+$company   = trim($_POST['company'] ?? '');
+$botcheck  = trim($_POST['botcheck'] ?? '');
 
-if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "Invalid email address.";
+if ($firstName === '') {
+    $errors[] = 'First name is required.';
 }
 
-if (!empty($company)) {
-    $errors[] = "Spam detected.";
+if ($lastName === '') {
+    $errors[] = 'Last name is required.';
 }
 
-if (trim($botcheck) !== "8") {
-    $errors[] = "Bot check failed. Please answer the math question correctly.";
+if ($email === '') {
+    $errors[] = 'Email is required.';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Invalid email format.';
+}
+
+if ($city === '') {
+    $errors[] = 'City is required.';
+}
+
+if ($message === '') {
+    $errors[] = 'Message is required.';
+}
+
+if ($company !== '') {
+    $errors[] = 'Spam detected.';
+}
+
+if ($botcheck !== '8') {
+    $errors[] = 'Bot verification failed.';
 }
 
 if (!empty($errors)) {
-    echo json_encode(["errors" => $errors]);
+    echo json_encode(['errors' => $errors]);
     exit;
 }
 
 try {
 
-    $database = new Database();
+    $db = new Database();
 
-    $database->query(
-        "INSERT INTO contacts (fname, lname, email, city, comments) 
-         VALUES (:fname, :lname, :email, :city, :comments)",
+    $db->query(
+        "INSERT INTO contact_messages 
+        (first_name, last_name, email, city, message) 
+        VALUES 
+        (:first_name, :last_name, :email, :city, :message)",
         [
-            "fname" => $fname,
-            "lname" => $lname,
-            "email" => $email,
-            "city" => $city,
-            "comments" => $comments
+            'first_name' => $firstName,
+            'last_name'  => $lastName,
+            'email'      => $email,
+            'city'       => $city,
+            'message'    => $message
         ]
     );
 
-    $emailBody = "First Name: $fname\n";
-    $emailBody .= "Last Name: $lname\n";
-    $emailBody .= "Email: $email\n";
-    $emailBody .= "City: $city\n";
-    $emailBody .= "Comments:\n$comments";
-
-    mail("l_clementi@fanshaweonline.ca", "Portfolio Contact Form Submission", $emailBody);
-
     echo json_encode([
-        "message" => "Message sent successfully."
+        'message' => 'Your message has been sent successfully.'
     ]);
+
     exit;
 
 } catch (Exception $e) {
 
     echo json_encode([
-        "errors" => ["Something went wrong. Please try again."]
+        'errors' => ['Something went wrong. Please try again later.']
     ]);
+
     exit;
 }

@@ -7,12 +7,16 @@ export function contactForm() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    const thisForm = event.currentTarget;
+
     const formData = new URLSearchParams({
-      fname: contactFormElement.elements.fname.value,
-      lname: contactFormElement.elements.lname.value,
-      email: contactFormElement.elements.email.value,
-      city: contactFormElement.elements.city.value,
-      comments: contactFormElement.elements.comments.value,
+      fname: thisForm.elements.fname.value,
+      lname: thisForm.elements.lname.value,
+      email: thisForm.elements.email.value,
+      city: thisForm.elements.city.value,
+      comments: thisForm.elements.comments.value,
+      company: thisForm.elements.company.value,
+      botcheck: thisForm.elements.botcheck.value,
     });
 
     fetch("includes/scripts/send.php", {
