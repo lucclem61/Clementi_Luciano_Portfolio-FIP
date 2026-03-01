@@ -1,26 +1,42 @@
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Angefangeat\ClementiLucianoPortfolioFip\Database;
+
+$database = new Database();
+
+$id = $_GET['id'] ?? null;
+
+if (!$id) {
+    die('No project ID provided.');
+}
+
+$projectResults = $database->query(
+    'SELECT * FROM projects WHERE id = :id AND is_deleted = 0;',
+    ['id' => $id]
+);
+
+$singleProjectResult = $projectResults[0] ?? null;
+
+if (!$singleProjectResult) {
+    die('Project not found.');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1.0, width=device-width">
-  <title>Project — Luciano Clementi</title>
-  <link href="css/grid.css" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo htmlspecialchars($singleProjectResult['title']); ?> – Luciano Clementi</title>
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body data-page="project">
 
-<header class="grid-con">
-  <div class="col-span-full">
-    <h1 class="project-title"></h1>
-  </div>
-</header>
+    <h1><?php echo htmlspecialchars($singleProjectResult['title']); ?></h1>
+    <p><?php echo htmlspecialchars($singleProjectResult['description']); ?></p>
 
-<main class="grid-con">
-  <div class="col-span-full">
-    <p class="project-description"></p>
-  </div>
-</main>
-
-<script type="module" src="js/main.js"></script>
 </body>
 </html>

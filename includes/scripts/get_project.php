@@ -1,41 +1,33 @@
 <?php
 
+use Angefangeat\ClementiLucianoPortfolioFip\Database;
+
 require_once __DIR__ . '/../../vendor/autoload.php';
-
-use Portfolio\Database;
-
-header('Content-Type: application/json; charset=utf-8');
 
 $id = $_GET['id'] ?? null;
 
 if (!$id) {
-    echo json_encode(["errors" => ["ID is required."]]);
+    echo "ID is required";
     exit;
 }
 
-try {
+$db = new Database();
 
-    $database = new Database();
+$results = $db->query(
+    "SELECT *
+     FROM projects
+     WHERE id = :id
+       AND is_deleted = 0
+     LIMIT 1",
+    ['id' => $id]
+);
 
-    $projectResults = $database->query(
-        "SELECT * FROM projects WHERE id = :id",
-        ["id" => $id]
-    );
-
-    if (!$projectResults || count($projectResults) === 0) {
-        echo json_encode(["errors" => ["Project not found."]]);
-        exit;
-    }
-
-    $project = $projectResults[0];
-
-    echo json_encode($project);
-    exit;
-
-} catch (Exception $e) {
-
-    echo json_encode([
-        "errors" => ["Something went wrong."]
-    ]);
+if (!$results || count($results) < 1) {
+    echo "Project not found";
     exit;
 }
+
+$project = $results[0];
+
+echo json_encode($project);
+die;
